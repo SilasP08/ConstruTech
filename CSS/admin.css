@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', 'Montserrat';
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background: #18181a;
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    box-shadow: 0 -5px 15px #000;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logo-header {
+    width: fit-content;
+    margin-top: 0.5rem;
+}
+
+.logo-header img {
+    height: 80px;
+}
+
+.img-user-header{
+    display: flex;
+    align-items: center;
+    color: #f8f8f8;
+}
+
+.img-user-header img {
+    height: 50px;
+    border-radius: 50%;
+}
+
+.menu-vertical-container {
+    background: #111111;
+    height: 90vh;
+    width: 15%;
+    color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-user {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.img-user img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.menu-vertical {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.menu-vertical i {
+    font-size: 22px;
+    margin-right: 15px;
+    margin-top: 2px;
+}
+
+.menu-vertical nav {
+    width: 100%;
+}
+
+.menu-vertical ul {
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.menu-vertical li:hover {
+    transition: 0.1s ease-in-out;
+    border-left: 4px solid #eeb333;
+
+}
+
+.menu-vertical li {
+    list-style: none;
+    padding-left: 2.5rem;
+    margin-bottom: 45px;
+}
+
+.menu-vertical ul::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 75%;
+    background: #25242c;
+    margin-left: 12.5%;
+    left: 0;
+    bottom: 0;
+}
+
+.logout-btn {
+    width: 50%;
+    height: 32px;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 30vh;
+}
+
+.logout-btn i {
+    font-size: 18px;
+    margin-right: 10px;
+    margin-top: 2px;    
+}
