@@ -191,111 +191,85 @@ main {
     margin-top: 2px;
 }
 
-.conteudo {
-    width: 85%;
+.container {
+    margin-top: 60px;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
+    justify-content: center;
+    padding: 10px 20px;
 }
 
-.estoque {
-    border: 3px solid rgb(0, 0, 0);
-    border-radius: 8px;
-    width: 90%;
-    height: 800px;
-    margin: 20px auto;
-    font-family: Arial, sans-serif;
-    background-color: #333;
+.form-card {
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    max-height: 640px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     box-shadow: 0 0 15px rgb(75, 74, 74);
 }
 
+.form-card h2 {
+    margin-bottom: 20px;
+    color: #eeb333;
+}
 
-.cabecalho {
+.form-group {
+    margin-bottom: 18px;
     display: flex;
-    justify-content: space-between;
-    background-color: #333;
-    color: white;
-    padding: 10px;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
     font-weight: bold;
-    border-radius: 8px 8px 0 0;
+    color: #dfaa38;
 }
 
-/* BRENOOOOOOOOOOOOO AQUI VC MECHE NA COR DA LINHA  SEM O HOVER */
-
-.linha {
-    display: flex;
-    justify-content: space-between;
+input, select, textarea {
     padding: 10px;
-    background-color: #666666;
-}
-
-/* BRENOOOOOOO É AQUI VC VAI MECHER SE VC QUISER MUDAR A DISTANCIA ENTRE OS NOMES */
-
-.cabecalho,
-.linha {
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
-    align-items: center;
-}
-
-.linha:nth-child(even) {
-    background-color: #f5f5f5;
-}
-
-/* BRENOOOOOOOOOOOOO AQUI VC VAI MECHER NAS CORES DA LINHA NO HOVER */
-.linha:hover {
-    background-color: rgb(187, 187, 187);
-    color: #000;
-    transition: ease 0.2s;
-}
-
-.estoque-header {
-    width: 90%;
-    display: flex;
-    margin: 15px auto;
-}
-
-.estoque-header input {
-    width: 25%;
-    padding: 12px;
     border-radius: 8px;
-    border: none;
-    background: #25242c;
-    color: white; 
-    margin-right: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: 0.2s;
 }
 
-.estoque-header a {
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #00a86b;
+    box-shadow: 0 0 5px rgba(0,168,107,0.3);
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+.row {
     display: flex;
-    justify-content: center;
-    width: 25%;
+    gap: 15px;
+}
+
+.row .form-group {
+    flex: 1;
+}
+
+.btn {
+    width: 100%;
     padding: 12px;
     border: none;
-    border-radius: 8px;
-    background: #eeb333;
+    border-radius: 10px;
+    background-color: #eeb333;
+    color: white;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.estoque-header a:hover {
-    transform: scale(1.03);
-}
-
-@media (max-width: 900px) {
-    .menu-vertical-container {
-        width: 70px;
-    }
-
-    .menu-vertical li {
-        justify-content: center;
-    }
-
-    .menu-vertical li span {
-        display: none;
-    }
-
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.btn:hover {
+    background-color: #ffae00;
+    transform: scale(1.02);
 }

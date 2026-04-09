@@ -8,6 +8,4 @@ $categoria = [
     'acabamento'=> 'Acabamento'
 ];
 
-$produtos_gerais = [
-    
-];
+$produtos_gerais = [];

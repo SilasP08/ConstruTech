@@ -95,10 +95,14 @@ main {
     display: flex;
 }
 
+section {
+    display: flex;
+}
+
 .menu-vertical-container {
     background: #111111;
     height: 90vh;
-    width: 15%;
+    width: 100%;
     color: #f8f8f8;
     display: flex;
     flex-direction: column;
