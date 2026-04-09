@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', 'Montserrat';
+    transition: all 0.2s ease;
+}
+
+:root {
+    --primary: #eeb333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(-45deg, #18181a, #2c2c2a, #18181a, #242321);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    box-shadow: 0 -5px 15px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-header {
+    width: fit-content;
+    margin-top: 0.5rem;
+}
+
+.logo-header img {
+    height: 70px;
+}
+
+.login-section {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+    display: flex;
+    height: 42vh;
+    width: 40%;
+}
+
+.login-card {
+  width: 350px;
+  height: 42vh;
+  padding: 40px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: #1b1b1f;
+  box-shadow: 0 10px 30px #00000020;
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #fff;
+}
+
+input {
+    color: #fff;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 1px solid #6b6b6b;
+  outline: none;
+  font-size: 14px;
+  background: transparent;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #777;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label {
+  top: -8px;
+  font-size: 12px;
+  color: var(--primary);
+}
+
+.options-login {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.options-login a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(to right, var(--primary), #f59416);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ffffff70;
+}
+
+.register {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.register a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.cadastro-card {
+  width: 350px;
+  height: 42vh;
+  padding: 40px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background: var(--primary);
+  box-shadow: 0 10px 30px #00000020;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cadastro-txt {
+    color: #fff;
+}
+
+.cadastro-card h2 {
+  margin-bottom: 35px;
+  font-weight: 700;
+  font-family: 'Montserrat';
+}
+
+.cadastro-card p {
+  margin-bottom: 75px;
+  font-weight: 300;
+}

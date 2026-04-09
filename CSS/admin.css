@@ -95,14 +95,10 @@ main {
     display: flex;
 }
 
-section {
-    display: flex;
-}
-
 .menu-vertical-container {
     background: #111111;
     height: 90vh;
-    width: 100%;
+    width: 15%;
     color: #f8f8f8;
     display: flex;
     flex-direction: column;
@@ -201,6 +197,33 @@ section {
     color: white;
 }
 
+.content-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.content-title h2 {
+    color: #fff;
+    position: relative;
+    padding-right: 1rem;
+}
+
+.content-title h2::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 2rem;
+    background: #888;
+    right: 0;
+    
+}
+
+.content-title span {
+    color: #888;
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -257,6 +280,95 @@ section {
 .chart-card h3 {
     margin-bottom: 10px;
     color: #fff;
+}
+
+/* Card do gráfico pizza */
+
+.pizza-card {
+    position: relative;
+    height: 420px;
+    width: 30%;
+}
+
+/* Header */
+
+.pizza-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+/* Container */
+
+.pizza-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: auto;
+}
+
+/* Texto central */
+
+.pizza-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.pizza-center h2 {
+    font-size: 28px;
+    color: #fff;
+}
+
+.pizza-center span {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Legenda */
+
+.pizza-legend {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.legend-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.legend-item .value {
+    color: #aaa;
+}
+
+/* Bolinhas */
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.dot.blue {
+    background: #4da3ff;
+}
+
+.dot.red {
+    background: #ff5a5a;
+}
+
+.dot.green {
+    background: #2ecc71;
 }
 
 @media (max-width: 900px) {
