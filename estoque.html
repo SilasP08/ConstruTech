@@ -1,3 +1,11 @@
+<!-- <?php
+
+require_once 'init.php';
+
+
+?>        -->
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -26,6 +34,12 @@
         </div>
     </header>
 
+    <!-- <?php
+    if (isset($_GET['produtoadd']) && $_GET['produtoadd'] === '1') {
+        print '<p class="aviso"> Produto Adicionado com Sucesso!! </p>';
+    };
+
+    ?> -->
     <main>
         <div class="menu-vertical-container">
             <div class="img-user">
@@ -65,37 +79,62 @@
                 </div>
             </div>
         </div>
-        <div class="conteudo">
+        
 
-        <h1>ESTOQUE</h1>
-
-        <div class="estoque">
-
-            <div class="cabecalho">
-                <div>Produto</div>
-                <div>Preço</div>
-                <div>Categoria</div>
-                <div>Quantidade</div>
-                <div>Preço Total</div>
-            </div>
-
-            <div id="tabelaProdutos">
-
-                <div class="linha">
-                    <div>Álcool 70% 1L</div>
-                    <div>R$ 25,99</div>
-                    <div>Limpeza</div>
-                    <div>25</div>
-                    <div>Preço Total</div>
+            <div class="content">
+                <div class="content-title">
+                    <h2>Estoque</h2>
+                    <span>ConstruTech</span>
                 </div>
-                
-            </div>
+                <div class="conteudo">
+                    <div class="estoque">
 
-        </div>
-        <div class="estoque-header">
-            <input type="text" id="searchProduto" placeholder="Buscar produto...">
-            <a href="cadastro_produto.html"><i class="bi bi-plus"></i> Adicionar</a>
-        </div>
+                        <div class="cabecalho">
+                            <div>Produto</div>
+                            <div>Preço</div>
+                            <div>Categoria</div>
+                            <div>Quantidade</div>
+                            <div>Preço Total</div>
+                        </div>
+
+                        <div id="tabelaProdutos">
+                            <!-- <?php
+                            foreach ($_SESSION['produtos'] as Produtos) {
+                                <div class="linha">  
+                                        <div>produtos['nome']</div>
+                                        <div>produtos['preco']</div>
+                                        <div>produtos['cat']</div>
+                                        <div>
+                                            if ($produtos['qtd'] >= 100){
+                                                print '<h1 class="qtd" style="color: green;>'.$produtos['qtd'].'</h1>';
+                                            } elseif ($produtos['qtd'] >= 50 and $produtos['qtd'] < 100) {
+                                                print '<h1 class="qtd" style="color: yellow;">'.$produtos['qtd'].'</h1>';
+                                            } else {
+                                                print '<h1 class="qtd" style="color: red;">'.$produtos['qtd'].'</h1>';
+                                            }
+                                        </div>
+                                        <div>Preço Total</div>
+                                </div>
+                            }
+                            ?> -->
+                            <div class="linha">
+                                <div class="produto">Martelo</div>
+                                <div class="preco">R$ 12,90</div>
+                                <div class="categoria">Ferramentas</div>
+                                <div class="quantidade">50</div>
+                                <div class="preco-total">R$ 645,00</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="estoque-header">
+                        <input type="text" id="searchProduto" placeholder="Buscar produto...">
+                        <a href="cadastro_produto.html"><i class="bi bi-plus"></i> Adicionar</a>
+                    </div>
+                </div>
+            
+
+            
     </main>
 
 

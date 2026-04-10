@@ -1,3 +1,27 @@
+<!-- <?php
+
+
+require_once 'init.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $ids = array_column($_SESSION['produtos'], 'id');
+    $novoid = $ids ? max($ids) + 1 : 1;
+    $_SESSION['produtos'][] = [
+        'id' => $novoid,
+        'nome' => $_POST['nome'],
+        'preco' => $_POST['preco'],
+        'cat' => $_POST['cat'],
+        'qtd' => $_POST['qtd']
+    ];
+    header('location: estoque.php?produtoadd=1');
+    exit;
+};
+
+ print_r($_SESSION); 
+
+?> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,9 +134,12 @@
                     </div>
 
                     <button class="btn" >Cadastrar Produto</button>
+                    
+                    
                 </form>
+                <a href="estoque.html" class="btn-voltar">Voltar</a>
             </div>
-
+            
         </div>
     </main>
 </body>

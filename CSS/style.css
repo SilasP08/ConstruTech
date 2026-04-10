@@ -128,6 +128,11 @@ input {
   color: var(--primary);
 }
 
+.options-login a:hover {
+  transition: 0.2s ease-in-out;
+  text-decoration: underline;
+}
+
 .btn-login {
   width: 100%;
   padding: 12px;
