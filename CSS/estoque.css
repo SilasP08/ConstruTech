@@ -260,7 +260,7 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: #666666;
+    background-color: #4d4d4d;
 }
 
 /* BRENOOOOOOO É AQUI VC VAI MECHER SE VC QUISER MUDAR A DISTANCIA ENTRE OS NOMES */
@@ -268,7 +268,7 @@ main {
 .cabecalho,
 .linha {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr 1fr;
+    grid-template-columns: 2fr 2fr 2fr 2fr 1.5fr;
     align-items: center;
 }
 
@@ -278,8 +278,7 @@ main {
 
 /* BRENOOOOOOOOOOOOO AQUI VC VAI MECHER NAS CORES DA LINHA NO HOVER */
 .linha:hover {
-    background-color: rgb(187, 187, 187);
-    color: #000;
+    background-color: #666666;
     transition: ease 0.2s;
 }
 
@@ -317,6 +316,25 @@ main {
 
 .qtd {
     font-size: 10px;
+}
+
+.preco-total i {
+    margin-left: 60px;
+    opacity: 0;
+    color: #aaa;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.linha:hover .preco-total i {
+    opacity: 1;
+    color: var(--primary);
+}
+
+.preco-total i:hover {
+    color: #ffd36a;
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 @media (max-width: 900px) {

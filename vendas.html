@@ -68,51 +68,35 @@
                 <h2>Vendas</h2>
                 <span>ConstruTech</span>
             </div>
+            <div class="list-container">
+                <div class="current-sales">
+                    <div class="current-sales-title">
+                        <h2>Vendas Em Andamento</h2>
+                    </div>
+
+                    <div class="linha">
+                        <div class="pedido">00001</div>
+                        <div class="comprador">Claudio Almeida</div>
+                        <div class="status">Aprovado</div>
+                        <div class="produto">Martelo</div>
+                        <div class="vendedor">Vicente Souza</div>
+                        <div class="preco-total">R$ 645,00</div>
+                    </div>
+                </div>
+
+                <div class="sales-history">
+                    <div class="sales-history-title">
+                        <h2>Histórico de Vendas</h2>
+                    </div>
+                    
+                    <div class="linha"></div>
+                </div>
+            </div>
         </div>
     </main>
 
     <footer>
         <p><i class="bi bi-c-circle"></i> ConstruTech - 2026</p>
     </footer>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx1 = document.getElementById('vendasChart');
-
-        new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-                datasets: [{
-                    label: 'Vendas (R$)',
-                    data: [1200, 1900, 3000, 2500, 2200, 3200],
-                    borderWidth: 2,
-                    tension: 0.3
-                }]
-            },
-            options: {
-                responsive: true
-            }
-        });
-        
-        const ctx2 = document.getElementById('estoqueChart');
-
-        new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: ['Cimento', 'Areia', 'Brita', 'Tijolo'],
-                datasets: [{
-                    label: 'Quantidade',
-                    data: [50, 80, 40, 100],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true
-            }
-        });
-        
-    </script>
 </body>
 </html>

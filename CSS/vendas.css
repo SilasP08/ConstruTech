@@ -191,7 +191,6 @@ main {
     margin-top: 2px;    
 }
 
-
 .content {
     width: 85%;
     padding: 2rem;
@@ -223,6 +222,27 @@ main {
 
 .content-title span {
     color: #888;
+}
+
+.list-container {
+    border: 1px solid red;
+    height: max-content;
+}
+
+.list-container h2 {
+    font-size: 18px;
+    color: #dfdfdf;
+    font-weight: 400;
+}
+
+.current-sales {
+    height: max-content;
+}
+
+.linha {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
 }
 
 footer {
