@@ -81,11 +81,13 @@ require_once 'init.php';
         </div>
         
 
-            <div class="content">
-                <div class="content-title">
-                    <h2>Estoque</h2>
-                    <span>ConstruTech</span>
-                </div>
+        <div class="content">
+            <div class="content-title">
+                <h2>Estoque</h2>
+                <span>ConstruTech</span>
+            </div>
+
+            <section>
                 <div class="conteudo">
                     <div class="estoque">
 
@@ -99,30 +101,31 @@ require_once 'init.php';
 
                         <div id="tabelaProdutos">
                             <!-- <?php
-                            foreach ($_SESSION['produtos'] as Produtos) {
-                                <div class="linha">  
-                                        <div>produtos['nome']</div>
-                                        <div>produtos['preco']</div>
-                                        <div>produtos['cat']</div>
-                                        <div>
-                                            if ($produtos['qtd'] >= 100){
-                                                print '<h1 class="qtd" style="color: green;>'.$produtos['qtd'].'</h1>';
-                                            } elseif ($produtos['qtd'] >= 50 and $produtos['qtd'] < 100) {
-                                                print '<h1 class="qtd" style="color: yellow;">'.$produtos['qtd'].'</h1>';
-                                            } else {
-                                                print '<h1 class="qtd" style="color: red;">'.$produtos['qtd'].'</h1>';
-                                            }
-                                        </div>
-                                        <div>Preço Total</div>
-                                </div>
-                            }
+                                if (empty($_SESSION['produtos'])) {
+                                    echo '<div class="sem-produtos">
+                                            <i class="bi bi-box-seam"></i>
+                                            <p>Nenhum produto cadastrado</p>
+                                        </div>';
+                                } else {
+                                    foreach ($_SESSION['produtos'] as $produtos) {
+                                        echo '
+                                        <div class="linha">
+                                            <div class="produto">'.$produtos['nome'].'</div>
+                                            <div class="preco">'.$produtos['preco'].'</div>
+                                            <div class="categoria">'.$produtos['cat'].'</div>
+                                            <div class="quantidade">'.$produtos['qtd'].'</div>
+                                            <div class="preco-total">Preço Total</div>
+                                        </div>';
+                                    }
+                                }
                             ?> -->
-                            <div class="linha">
-                                <div class="produto">Martelo</div>
-                                <div class="preco">R$ 12,90</div>
-                                <div class="categoria">Ferramentas</div>
-                                <div class="quantidade">50</div>
-                                <div class="preco-total">R$ 645,00<i class="bi bi-pencil-square"></i></div>
+
+                            <div class="rodape-tabela">
+                                <div class="valor">Valor Total: </div>
+                                <div class="#">--</div>
+                                <div class="quantidade-final">400</div>
+                                <div class="preco-final">R$ 2800</div>
+                                <div class="preco-total-final">R$ 12000</div>
                             </div>
                         </div>
                         
@@ -132,7 +135,9 @@ require_once 'init.php';
                         <a href="cadastro_produto.html"><i class="bi bi-plus"></i> Adicionar</a>
                     </div>
                 </div>
-            </div>
+            </section>
+            
+        </div>
     </main>
 </body>
 </html>
