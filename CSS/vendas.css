@@ -10,6 +10,7 @@
 
 :root {
     --primary: #eeb333;
+    --card: #1f1f23
 }
 
 a {
@@ -176,7 +177,7 @@ main {
     height: 32px;
     font-size: 14px;
     text-align: center;
-    margin-top: 22vh;
+    margin-top: 12vh;
 }
 
 .logout-btn:hover {
@@ -222,6 +223,126 @@ main {
 
 .content-title span {
     color: #888;
+}
+
+.logout-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+.logout-modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.logout-modal-body p {
+    color: #aaa;
+}
+
+.logout-modal-content {
+    position: relative;
+    background: var(--card);
+    color: #fff;
+    width: 500px;
+    height: 35vh;
+    margin: 5% auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #666;
+}
+
+.fechar:hover {
+    color: #e74c3c;
+}
+
+.logout-modal-body h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.logout-modal-body p {
+    color: #666;
+    font-size: 14px;
+}
+
+.modal-icon {
+    font-size: 50px;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.botoes-modal {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-cancelar {
+    margin-top: 2rem;
+    padding: 15px 25px;
+    width: 150px;
+    background: #ccc;
+    border: none;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.btn-sair {
+    margin-top: 2rem;
+    padding: 15px 25px;
+    width: 150px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.btn-sair:hover,
+.btn-cancelar:hover {
+    transition: 0.2s ease-in;
+    transform: scale(1.05);
+    filter: brightness(125%);
+}
+
+.filter-container {
+    background-color: var(--card);
+    height: 100px;
+    width: 100%;
+    border-radius: 12px;
 }
 
 .list-container {

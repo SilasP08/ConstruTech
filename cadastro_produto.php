@@ -1,5 +1,4 @@
-<!-- <?php
-
+<?php
 
 require_once 'init.php';
 
@@ -12,18 +11,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'nome' => $_POST['nome'],
         'preco' => $_POST['preco'],
         'cat' => $_POST['cat'],
-        'qtd' => $_POST['qtd']
+        'qtd' => $_POST['qtd'],
+        'imagem' => $_POST['imagem'],
+        'desc' => $_POST['desc']
     ];
     header('location: estoque.php?produtoadd=1');
     exit;
-};
+}
+;
 
- print_r($_SESSION); 
+print_r($_SESSION);
 
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <div class="logo-header">
@@ -44,26 +48,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="img-user-header">
             <img src="Imagem/login-user.jpg" alt="">
-            <p>$nome</p>
+            <p><?php $nome ?></p>
         </div>
     </header>
     <main>
         <div class="menu-vertical-container">
             <div class="img-user">
                 <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">Bem Vindo de volta $nome!</div>
+                <div class="name-user">Bem Vindo de volta <?php $nome ?>!</div>
             </div>
             <div class="menu-vertical">
                 <nav class="">
                     <ul>
                         <li>
-                            <a href="admin.html">
+                            <a href="admin.php">
                                 <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
                             </a>
                         </li>
 
                         <li class="active">
-                            <a href="estoque.html">
+                            <a href="estoque.php">
                                 <i class="bi bi-archive-fill"></i> Estoque
                             </a>
                         </li>
@@ -81,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </li>
                     </ul>
                 </nav>
-                <div class="logout-btn">
+                <div class="logout-btn" onclick="abrirModal()">
                     <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
                 </div>
             </div>
@@ -101,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="row">
                         <div class="form-group">
                             <label>Categoria</label>
-                            <select name="categoria">
+                            <select name="cat">
                                 <option value="">Selecione</option value="">
                                 <option value="Bruto">Produtos Brutos</option>
                                 <option value="Ferramentas">Ferramentas</option>
@@ -125,7 +129,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label>Imagem do Produto</label>
-                        <input type="text" placeholder="Coloque o caminho da imagem ou URL" name="imagem"  accept="image/*">
+                        <input type="text" placeholder="Coloque o caminho da imagem ou URL" name="imagem"
+                            accept="image/*">
                     </div>
 
                     <div class="form-group">
@@ -133,14 +138,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <textarea name="desc" placeholder="Digite uma descrição detalhada do produto..."></textarea>
                     </div>
 
-                    <button class="btn" >Cadastrar Produto</button>
-                    
-                    
+                    <button class="btn">Cadastrar Produto</button>
+
+
                 </form>
-                <a href="estoque.html" class="btn-voltar">Voltar</a>
+                <a href="estoque.php" class="btn-voltar">Voltar</a>
             </div>
-            
+
         </div>
     </main>
 </body>
+
 </html>

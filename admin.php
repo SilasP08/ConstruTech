@@ -1,3 +1,7 @@
+<?php
+require_once 'init.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,7 +24,7 @@
         
         <div class="img-user-header">
             <img src="Imagem/login-user.jpg" alt="">
-            <p>$nome</p>
+            <p><?php $nome ?></p>
         </div>
     </header>
 
@@ -30,39 +34,76 @@
         <div class="menu-vertical-container">
             <div class="img-user">
                 <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">Bem Vindo de volta $nome!</div>
+                <div class="name-user">Bem Vindo de volta <?php $nome ?>!</div>
             </div>
             
             <div class="menu-vertical">
-                <nav class="">
+                <nav>
                     <ul>
-                        <li class="active">
-                            <a href="admin.html">
+                        <a href="admin.php">
+                            <li class="active">
                                 <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
-                            </a>
-                        </li>
+                            </li>
+                        </a>
 
-                        <li>
-                            <a href="estoque.html">
+                        <a href="estoque.php">
+                            <li>
                                 <i class="bi bi-archive-fill"></i> Estoque
-                            </a>
-                        </li>
+                            </li>
+                        </a>
 
-                        <li>
-                            <a href="vendas.html">
+                        <a href="vendas.html">
+                            <li>
                                 <i class="bi bi-receipt"></i> Vendas
-                            </a>
-                        </li>
+                            </li>
+                        </a>
 
-                        <li>
-                            <a href="funcionarios.html">
+                        <a href="funcionarios.html">
+                            <li>
                                 <i class="bi bi-person-vcard"></i>Funcionarios
-                            </a>
-                        </li>
+                            </li>
+                        </a>
+
+                        <a href="config.html">
+                            <li>
+                                <i class="bi bi-gear-fill"></i>Configurações
+                            </li>
+                        </a>
                     </ul>
                 </nav>
-                <div class="logout-btn">
+                
+                <div class="logout-btn" onclick="abrirModal()">
                     <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalLogout" class="logout-modal">
+            <div class="logout-modal-content">
+
+                <span class="fechar" onclick="fecharModal()">&times;</span>
+
+                <div class="logout-modal-body">
+                    <div class="modal-icon">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </div>
+
+                    <h2>Deseja sair da conta?</h2>
+
+                    <p>Você será desconectado do sistema.</p>
+
+                    <div class="botoes-modal">
+
+                        <button class="btn-cancelar" onclick="fecharModal()">
+                            Cancelar
+                        </button>
+
+                        <a href="logout.php">
+                            <button class="btn-sair">
+                                Sair
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -181,134 +222,8 @@
         <p><i class="bi bi-c-circle"></i> ConstruTech - 2026</p>
     </footer>
 
+    <script src="./JS/logoutModal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx1 = document.getElementById('vendasChart');
-
-        new Chart(ctx1, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-                datasets: [{
-                    label: 'Vendas (R$)',
-                    data: [1200, 1900, 3000, 2500, 2200, 3200],
-                    borderWidth: 2,
-
-                    borderColor: '#eeb333',
-                    backgroundColor: 'rgba(238, 179, 51, 0.2)',
-                    pointBackgroundColor: '#eeb333', 
-                    pointBorderColor: '#fff',
-
-                    tension: 0.3
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#fff'
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            color: '#aaa'
-                        },
-                        grid: {
-                            color: '#2a2a2a'
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            color: '#aaa'
-                        },
-                        grid: {
-                            color: '#2a2a2a'
-                        }
-                    }
-                }
-            }
-        });
-        
-        const ctx2 = document.getElementById('estoqueChart');
-
-        new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: ['Cimento', 'Areia', 'Brita', 'Tijolo'],
-                datasets: [{
-                    label: 'Quantidade',
-                    data: [50, 80, 40, 100],
-
-                    backgroundColor: '#eeb333',
-                    borderColor: '#d49a1f',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#fff'
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            color: '#aaa'
-                        },
-                        grid: {
-                            color: '#2a2a2a'
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            color: '#aaa'
-                        },
-                        grid: {
-                            color: '#2a2a2a'
-                        }
-                    }
-                }
-            }
-        });
-        
-        var ctx = document.getElementById('meuGraficoPizza').getContext('2d');
-
-        var meuGrafico = new Chart(ctx, {
-            type: 'doughnut',
-
-            data: {
-                labels: ['Sales', 'Product', 'Income'],
-                datasets: [{
-                    data: [64, 25, 11],
-
-                    backgroundColor: [
-                        '#4da3ff',
-                        '#ff5a5a',
-                        '#eeb333'
-                    ],
-
-                    borderColor: '#1f1f23',
-                    borderWidth: 3,
-                    cutout: '70%'
-                }]
-            },
-
-            options: {
-                responsive: true,
-
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="./JS/admin.js"></script>
 </body>
 </html>

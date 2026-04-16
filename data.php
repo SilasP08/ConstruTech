@@ -1,11 +1,13 @@
 <?php
 
+$nome = "Sr. Vicente";
+
 $nomeEmp = 'ConstruTech';
 
 $categoria = [
-    'bruto'=> 'Bruto',
-    'ferramentas'=> 'Ferramentas',
-    'acabamento'=> 'Acabamento'
+    'Bruto'=> 'Bruto',
+    'Ferramentas'=> 'Ferramentas',
+    'Acabamento'=> 'Acabamento'
 ];
 
 $produtos_gerais = [];
