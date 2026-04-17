@@ -294,19 +294,27 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                             $total = 0;
                             $total_total = 0;
                             $qtd_total = 0;
+                           $categoria_nome = 'Todas';
+
+                            if ($categoria_get !== '' && isset($categoria[$categoria_get])) {
+                                $categoria_nome = $categoria[$categoria_get];
+                            }
                             foreach ($_SESSION['produtos'] as $produto) {
+                               
+                               if ($categoria_get === '' || $produto['cat'] === $categoria_get) {
                                 $soma = ($produto['preco'] * $produto['qtd']);
                                 $total = $total + $produto['preco'];
                                 $total_total = $total_total + $soma;
                                 $qtd_total = $qtd_total + $produto['qtd'];
+                               }
                             }
                             print '
                               <div class="rodape-tabela">
                                 <div class="valor">Valor Total: </div>
-                                <div class="preco-final"> '. $total .'</div>
-                                <div class="#">--</div>
-                                <div class="quantidade-final">'.$qtd_total.'</div>
-                                <div class="preco-total-final">'.$total_total.'</div>
+                                <div class="preco-final"> '. ($total == 0 ? '--' : $total ) .'</div>
+                                <div class="#">'.$categoria_nome.'</div>
+                                <div class="quantidade-final">'. ($qtd_total == 0 ? '--' : $qtd_total ).'</div>
+                                <div class="preco-total-final">'. ($total_total == 0 ? '--' : $total_total ).'</div>
                             ';
                          
                             

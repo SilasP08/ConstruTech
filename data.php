@@ -1,6 +1,6 @@
 <?php
 
-$nome = "Sr. Vicente";
+$nome_admin = "Sr. Vicente";
 
 $nomeEmp = 'ConstruTech';
 

@@ -24,7 +24,7 @@ require_once 'init.php';
         
         <div class="img-user-header">
             <img src="Imagem/login-user.jpg" alt="">
-            <p><?php $nome ?></p>
+            <p><?php $nome_admin ?></p>
         </div>
     </header>
 
@@ -34,7 +34,7 @@ require_once 'init.php';
         <div class="menu-vertical-container">
             <div class="img-user">
                 <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">Bem Vindo de volta <?php $nome ?>!</div>
+                <div class="name-user">Bem Vindo de volta <?php $nome_admin ?>!</div>
             </div>
             
             <div class="menu-vertical">

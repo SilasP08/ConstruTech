@@ -18,7 +18,8 @@
             <div class="login-card">
                 <h2>Login</h2>
 
-                <form>
+                <form action="verificacao_login.php" method="POST">
+                      
                     <div class="input-box">
                         <input type="email" name="email" required/>
                         <label>Email</label>
