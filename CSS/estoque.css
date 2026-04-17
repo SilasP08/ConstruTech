@@ -422,6 +422,50 @@ section {
     position: sticky;
     top: 0;
     flex-shrink: 0;
+    z-index: 500;
+}
+
+.cabecalho-select {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    z-index: 600;
+}
+
+.select-selected {
+    color: var(--primary);
+    text-align: center;
+}
+
+.select-selected i {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.select-options {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: #1f1f23;
+    border: 1px solid var(--primary);
+    border-radius: 6px;
+    margin-top: 5px;
+    z-index: 1000;
+}
+
+.active-option {
+    background: var(--primary);
+    color: #000;
+}
+
+.select-options div {
+    padding: 10px;
+    color: white;
+}
+
+.select-options div:hover {
+    background: #ffffff14;
+    color: var(--primary);
 }
 
 .produto {
@@ -712,6 +756,21 @@ i:hover {
 
 .input-group select:focus{
     border-color: #007bff;
+}
+
+footer {
+    width: 100%;
+    height: 5vh;
+    box-shadow: 0 5px 15px #000;
+    color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+footer p {
+    font-size: 14px;
 }
 
 @media (max-width: 900px) {

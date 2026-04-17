@@ -30,7 +30,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
         <div class="img-user-header">
             <img src="Imagem/login-user.jpg" alt="">
-            <p><?php $nome ?></p>
+            <p><?php echo $nome ?>/p>
         </div>
     </header>
 
@@ -45,7 +45,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
         <div class="menu-vertical-container">
             <div class="img-user">
                 <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">Bem Vindo de volta <?php $nome ?>!</div>
+                <div class="name-user"><p>Bem Vindo de volta !</p></div>
             </div>
             <div class="menu-vertical">
                 <nav>
@@ -133,9 +133,32 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                             <div>Produto</div>
                             <div>Preço</div>
                             <form method="GET">
-                                <select onchange="filtrarCategoria(this.value)">
+                                <div class="cabecalho-select">
+                                    <div class="select-selected">
+                                        <?php 
+                                            if ($categoria_get !== '' && isset($categoria[$categoria_get])) {
+                                                echo $categoria[$categoria_get], '<i class="bi bi-caret-down-fill"></i>';
+                                            } else {
+                                                echo 'Categoria<i class="bi bi-caret-down-fill"></i>';
+                                            }
+                                        ?>
+                                    </div>
+                                    <div class="select-options">
+                                        <div data-value="" class="<?= $categoria_get === '' ? 'active-option' : '' ?>">
+                                            Categoria
+                                        </div>
 
-                                    <option value="">Categoria</option>
+                                        <?php foreach ($categoria as $kat => $nome): ?>
+                                            <div data-value="<?= $kat ?>" class="<?= $categoria_get === $kat ?'active-option' : '' ?>">
+                                                <?= $nome ?>
+                                            </div>
+                                        <?php endforeach; ?>
+
+                                    </div>
+                                </div>
+                                <!-- <select onchange="filtrarCategoria(this.value)">
+
+                                    <option value="">Categoria<i class="bi bi-caret-down-fill"></i></option>
 
                                     <?php
                                     foreach ($categoria as $kat => $nome) {
@@ -144,7 +167,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                     }
                                     ?>
 
-                                </select>
+                                </select> -->
 
                             </form>
 
@@ -301,6 +324,11 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
         </div>
     </main>
 
+    <?php
+      require "./partials/footer.php";
+    ?>
+                                        
+                            
     <script src="./JS/logoutModal.js"></script>
     <script>
         let produtoAtualId = null;
@@ -335,6 +363,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
             window.location.href = "excluir_produto.php?id=" + produtoAtualId;
         }
+
         function filtrarCategoria(valor) {
 
             if (valor === "") {
@@ -344,6 +373,33 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
             }
 
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const select = document.querySelector(".cabecalho-select");
+            const selected = select.querySelector(".select-selected");
+            const options = select.querySelector(".select-options");
+
+            selected.addEventListener("click", () => {
+                options.style.display =
+                    options.style.display === "block" ? "none" : "block";
+            });
+
+            options.querySelectorAll("div").forEach(option => {
+                option.addEventListener("click", () => {
+                    selected.textContent = option.textContent;
+                    options.style.display = "none";
+
+                    filtrarCategoria(option.dataset.value);
+                });
+            });
+
+            document.addEventListener("click", (e) => {
+                if (!select.contains(e.target)) {
+                    options.style.display = "none";
+                }
+            });
+        });
     </script>
 </body>
 
