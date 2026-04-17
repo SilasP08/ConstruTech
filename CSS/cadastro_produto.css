@@ -10,6 +10,7 @@
 
 :root {
     --primary: #eeb333;
+    --card: #1f1f23
 }
 
 a {
@@ -89,6 +90,10 @@ header {
 
 .img-user-header p {
     padding: 1.5rem;
+}
+
+.name-user {
+    font-size: 14px;
 }
 
 main {
@@ -191,6 +196,152 @@ main {
     margin-top: 2px;
 }
 
+.content {
+    width: 85%;
+    padding: 2rem;
+    color: white;
+}
+
+.content-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.content-title h2 {
+    color: #fff;
+    position: relative;
+    padding-right: 1rem;
+}
+
+.content-title h2::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 2rem;
+    background: #888;
+    right: 0;
+    
+}
+
+.content-title span {
+    color: #888;
+}
+
+.logout-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+.logout-modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.logout-modal-body p {
+    color: #aaa;
+}
+
+.logout-modal-content {
+    position: relative;
+    background: var(--card);
+    color: #fff;
+    width: 500px;
+    height: 35vh;
+    margin: 5% auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 26px;
+    cursor: pointer;
+    color: #666;
+}
+
+.fechar:hover {
+    color: #e74c3c;
+}
+
+.logout-modal-body h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.logout-modal-body p {
+    color: #666;
+    font-size: 14px;
+}
+
+.modal-icon {
+    font-size: 50px;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.botoes-modal {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-cancelar {
+    margin-top: 2rem;
+    padding: 15px 25px;
+    width: 150px;
+    background: #ccc;
+    border: none;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.btn-sair {
+    margin-top: 2rem;
+    padding: 15px 25px;
+    width: 150px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.btn-sair:hover,
+.btn-cancelar:hover {
+    transition: 0.2s ease-in;
+    transform: scale(1.05);
+    filter: brightness(125%);
+}
+
 .container {
     margin-top: 60px;
     width: 100%;
@@ -200,15 +351,14 @@ main {
 }
 
 .form-card {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--card);
     width: 100%;
     max-width: 650px;
     height: auto;
     max-height: 640px;
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    box-shadow: 0 0 15px rgb(75, 74, 74);
+    border: 1px solid #2a2a2a;
 }
 
 .form-card h2 {
@@ -236,7 +386,9 @@ input, select, textarea {
     transition: 0.2s;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus, 
+select:focus, 
+textarea:focus {
     outline: none;
     border-color: #00a86b;
     box-shadow: 0 0 5px rgba(0,168,107,0.3);
@@ -295,4 +447,19 @@ textarea {
 .btn-voltar:hover {
     background-color: #ffae00;
     transform: scale(1.02);
+}
+
+footer {
+    width: 100%;
+    height: 5vh;
+    box-shadow: 0 5px 15px #000;
+    color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+footer p {
+    font-size: 14px;
 }

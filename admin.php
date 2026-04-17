@@ -9,12 +9,12 @@ require_once 'init.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
-    <title>ConstruTech - Admin Dashboard</title>
+    <title><?php echo $nomeEmp  ?> - Admin Dashboard</title>
 </head>
 <body>
     <header>
         <div class="logo-header">
-            <img src="Imagem/logo_principal.png" alt="">
+            <img src="Imagem/logo.png" alt="">
         </div>
 
         <div class="search-header">
@@ -24,7 +24,7 @@ require_once 'init.php';
         
         <div class="img-user-header">
             <img src="Imagem/login-user.jpg" alt="">
-            <p><?php $nome_admin ?></p>
+            <p><?php echo $nome_admin ?></p>
         </div>
     </header>
 
@@ -34,7 +34,7 @@ require_once 'init.php';
         <div class="menu-vertical-container">
             <div class="img-user">
                 <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">Bem Vindo de volta <?php $nome_admin ?>!</div>
+                <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
             </div>
             
             <div class="menu-vertical">
@@ -64,7 +64,7 @@ require_once 'init.php';
                             </li>
                         </a>
 
-                        <a href="config.html">
+                        <a href="config.php">
                             <li>
                                 <i class="bi bi-gear-fill"></i>Configurações
                             </li>

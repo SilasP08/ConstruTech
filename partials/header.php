@@ -10,6 +10,6 @@
 
     <div class="img-user-header">
         <img src="Imagem/login-user.jpg" alt="">
-        <p><?php $nome ?></p>
+        <p><?php echo $nome_admin ?></p>
     </div>
 </header>

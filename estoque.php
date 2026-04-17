@@ -14,7 +14,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/estoque.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <title>ConstruTech - Admin Dashboard</title>
+    <title><?php echo $nomeEmp  ?> - Admin Dashboard</title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
         <div class="img-user-header">
             <img src="Imagem/login-user.jpg" alt="">
-            <p><?php echo $nome ?>/p>
+            <p><?php echo $nome_admin ?></p>
         </div>
     </header>
 
@@ -45,7 +45,9 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
         <div class="menu-vertical-container">
             <div class="img-user">
                 <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user"><p>Bem Vindo de volta !</p></div>
+                <div class="name-user">
+                    <p>Bem Vindo de volta <?php echo $nome_admin ?> !</p>
+                </div>
             </div>
             <div class="menu-vertical">
                 <nav>
@@ -74,7 +76,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                             </li>
                         </a>
 
-                        <a href="config.html">
+                        <a href="config.php">
                             <li>
                                 <i class="bi bi-gear-fill"></i>Configurações
                             </li>
@@ -135,12 +137,12 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                             <form method="GET">
                                 <div class="cabecalho-select">
                                     <div class="select-selected">
-                                        <?php 
-                                            if ($categoria_get !== '' && isset($categoria[$categoria_get])) {
-                                                echo $categoria[$categoria_get], '<i class="bi bi-caret-down-fill"></i>';
-                                            } else {
-                                                echo 'Categoria<i class="bi bi-caret-down-fill"></i>';
-                                            }
+                                        <?php
+                                        if ($categoria_get !== '' && isset($categoria[$categoria_get])) {
+                                            echo $categoria[$categoria_get], '<i class="bi bi-caret-down-fill"></i>';
+                                        } else {
+                                            echo 'Categoria<i class="bi bi-caret-down-fill"></i>';
+                                        }
                                         ?>
                                     </div>
                                     <div class="select-options">
@@ -149,7 +151,8 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                         </div>
 
                                         <?php foreach ($categoria as $kat => $nome): ?>
-                                            <div data-value="<?= $kat ?>" class="<?= $categoria_get === $kat ?'active-option' : '' ?>">
+                                            <div data-value="<?= $kat ?>"
+                                                class="<?= $categoria_get === $kat ? 'active-option' : '' ?>">
                                                 <?= $nome ?>
                                             </div>
                                         <?php endforeach; ?>
@@ -181,16 +184,14 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
                             foreach ($_SESSION['produtos'] as $produto) {
 
-
-
                                 $cor = '';
 
-                                if ($produto['qtd'] >= 100) {
+                                if ($produto['qtd'] >= $nivel_max) {
                                     $simbol = '<i style="color: green; margin-right: 10px;" class="bi bi-check-circle-fill"></i>';
-                                } elseif ($produto['qtd'] >= 50) {
-                                    $simbol = '<i style="color: yellow; margin-right: 10px;" class="bi bi-exclamation-diamond-fill"></i>';
-                                } else {
+                                } elseif ($produto['qtd'] <= $nivel_min) {
                                     $simbol = '<i style="color: red; margin-right: 10px;" class="bi bi-exclamation-triangle-fill"></i>';
+                                } else {
+                                    $simbol = '<i style="color: yellow; margin-right: 10px; font-size:" class="bi bi-exclamation-diamond-fill"></i>';
                                 }
 
                                 $json = htmlspecialchars(json_encode($produto), ENT_QUOTES, 'UTF-8');
@@ -226,10 +227,8 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
                             <div id="modalProduto" class="modal">
                                 <div class="modal-content">
-
-                                    <span class="fechar" onclick="fecharModal()">&times;</span>
-
                                     <div class="modal-body">
+                                        <span class="fechar" onclick="fecharModal()">&times;</span>
 
                                         <div class="modal-img">
                                             <img id="imgPreview" src="">
@@ -241,18 +240,18 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                             <form method="POST" action="editar_produto.php">
                                                 <input type="hidden" name="id" id="id">
                                                 <div class="input-group">
-                                                    <input type="text" name="nome" id="nome">
+                                                    <input type="text" name="nome" id="nome" required>
                                                     <label for="nome">Nome do Produto</label>
                                                 </div>
 
                                                 <div class="input-group">
-                                                    <input type="number" step="0.01" name="preco" id="preco">
+                                                    <input type="number" step="0.01" name="preco" id="preco" required>
                                                     <label for="preco">Preço</label>
                                                 </div>
 
                                                 <div class="input-group">
-                                                    <select name="cat" id="cat">
-                                                        <option value="">Selecione</option>
+                                                    <select name="cat" id="cat" required>
+                                                        <option value="" disabled selected hidden>Selecione</option>
                                                         <option value="Bruto">Bruto</option>
                                                         <option value="Ferramentas">Ferramentas</option>
                                                         <option value="Acabamento">Acabamento</option>
@@ -261,7 +260,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                                 </div>
 
                                                 <div class="input-group">
-                                                    <input type="number" name="qtd" id="qtd">
+                                                    <input type="number" name="qtd" id="qtd" required>
                                                     <label for="qtd">Quantidade</label>
                                                 </div>
                                                 <div class="input-group">
@@ -270,7 +269,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                                     <label for="imagem">URL da Imagem</label>
                                                 </div>
                                                 <div class="input-group">
-                                                    <textarea name="desc" id="desc"></textarea>
+                                                    <textarea name="desc" id="desc"></textarea required>
                                                     <label for="desc">Descrição</label>
                                                 </div>
                                                 <div class="botoes">
@@ -280,7 +279,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
                                                     <button type="button" class="btn-excluir"
                                                         onclick="excluirProduto()">
-                                                        <i class="bi bi-trash3-fill">Excluir</i>
+                                                        <span><i class="bi bi-trash3-fill"></i>Excluir</span>
                                                     </button>
                                                 </div>
 
@@ -290,34 +289,35 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                     </div>
                                 </div>
                             </div>
+                            
                             <?php
                             $total = 0;
                             $total_total = 0;
                             $qtd_total = 0;
-                           $categoria_nome = 'Todas';
+                            $categoria_nome = 'Todas';
 
                             if ($categoria_get !== '' && isset($categoria[$categoria_get])) {
                                 $categoria_nome = $categoria[$categoria_get];
                             }
                             foreach ($_SESSION['produtos'] as $produto) {
-                               
-                               if ($categoria_get === '' || $produto['cat'] === $categoria_get) {
-                                $soma = ($produto['preco'] * $produto['qtd']);
-                                $total = $total + $produto['preco'];
-                                $total_total = $total_total + $soma;
-                                $qtd_total = $qtd_total + $produto['qtd'];
-                               }
+
+                                if ($categoria_get === '' || $produto['cat'] === $categoria_get) {
+                                    $soma = ($produto['preco'] * $produto['qtd']);
+                                    $total = $total + $produto['preco'];
+                                    $total_total = $total_total + $soma;
+                                    $qtd_total = $qtd_total + $produto['qtd'];
+                                }
                             }
                             print '
                               <div class="rodape-tabela">
                                 <div class="valor">Valor Total: </div>
-                                <div class="preco-final"> '. ($total == 0 ? '--' : $total ) .'</div>
-                                <div class="#">'.$categoria_nome.'</div>
-                                <div class="quantidade-final">'. ($qtd_total == 0 ? '--' : $qtd_total ).'</div>
-                                <div class="preco-total-final">'. ($total_total == 0 ? '--' : $total_total ).'</div>
+                                <div class="preco-final"> ' . ($total == 0 ? '--' : $total) . '</div>
+                                <div class="#">' . $categoria_nome . '</div>
+                                <div class="quantidade-final">' . ($qtd_total == 0 ? '--' : $qtd_total) . '</div>
+                                <div class="preco-total-final">' . ($total_total == 0 ? '--' : $total_total) . '</div>
                             ';
-                         
-                            
+
+
                             ?>
                         </div>
                     </div>
@@ -333,82 +333,12 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
     </main>
 
     <?php
-      require "./partials/footer.php";
+    require "./partials/footer.php";
     ?>
-                                        
-                            
+
+
     <script src="./JS/logoutModal.js"></script>
-    <script>
-        let produtoAtualId = null;
-        function abrirModal(produto) {
-
-            produtoAtualId = produto.id;
-
-            document.getElementById('modalProduto').style.display = 'block';
-
-            document.getElementById('id').value = produto.id;
-            document.getElementById('nome').value = produto.nome;
-            document.getElementById('preco').value = produto.preco;
-            document.getElementById('cat').value = produto.cat;
-            document.getElementById('qtd').value = produto.qtd;
-            document.getElementById('imagem').value = produto.imagem;
-            document.getElementById('desc').value = produto.desc;
-
-            let img = document.getElementById('imgPreview');
-
-            if (produto.imagem && produto.imagem !== "") {
-                img.src = produto.imagem;
-            } else {
-                img.src = "https://via.placeholder.com/300?text=Sem+Imagem";
-            }
-        }
-
-        function excluirProduto() {
-
-            if (!confirm("Tem certeza que deseja excluir este produto?")) {
-                return;
-            }
-
-            window.location.href = "excluir_produto.php?id=" + produtoAtualId;
-        }
-
-        function filtrarCategoria(valor) {
-
-            if (valor === "") {
-                window.location.href = "estoque.php";
-            } else {
-                window.location.href = "estoque.php?categoria=" + valor;
-            }
-
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const select = document.querySelector(".cabecalho-select");
-            const selected = select.querySelector(".select-selected");
-            const options = select.querySelector(".select-options");
-
-            selected.addEventListener("click", () => {
-                options.style.display =
-                    options.style.display === "block" ? "none" : "block";
-            });
-
-            options.querySelectorAll("div").forEach(option => {
-                option.addEventListener("click", () => {
-                    selected.textContent = option.textContent;
-                    options.style.display = "none";
-
-                    filtrarCategoria(option.dataset.value);
-                });
-            });
-
-            document.addEventListener("click", (e) => {
-                if (!select.contains(e.target)) {
-                    options.style.display = "none";
-                }
-            });
-        });
-    </script>
+    <script src="./JS/estoque.js"></script>
 </body>
 
 </html>

@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ;
 
-print_r($_SESSION);
+// print_r($_SESSION);
 
 ?>
 
@@ -48,14 +48,14 @@ print_r($_SESSION);
 
         <div class="img-user-header">
             <img src="Imagem/login-user.jpg" alt="">
-            <p><?php $nome ?></p>
+            <p><?php echo $nome_admin ?></p>
         </div>
     </header>
     <main>
         <div class="menu-vertical-container">
             <div class="img-user">
                 <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">Bem Vindo de volta <?php $nome ?>!</div>
+                <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
             </div>
             <div class="menu-vertical">
                 <nav class="">
@@ -91,62 +91,102 @@ print_r($_SESSION);
             </div>
         </div>
 
-        <div class="container">
+        <div id="modalLogout" class="logout-modal">
+            <div class="logout-modal-content">
 
-            <div class="form-card">
-                <h2>Cadastrar Novo Produto</h2>
+                <span class="fechar" onclick="fecharModal()">&times;</span>
 
-                <form action="cadastro_produto.php" method="POST">
-                    <div class="form-group">
-                        <label>Nome do Produto</label>
-                        <input type="text" placeholder="Digite o nome do produto" name="nome">
+                <div class="logout-modal-body">
+                    <div class="modal-icon">
+                        <i class="bi bi-box-arrow-right"></i>
                     </div>
 
-                    <div class="row">
-                        <div class="form-group">
-                            <label>Categoria</label>
-                            <select name="cat">
-                                <option value="">Selecione</option value="">
-                                <option value="Bruto">Produtos Brutos</option>
-                                <option value="Ferramentas">Ferramentas</option>
-                                <option value="Acabamento">Acabamento</option>
-                            </select>
-                        </div>
+                    <h2>Deseja sair da conta?</h2>
 
-                        <div class="form-group">
-                            <label>Preço (R$)</label>
-                            <input type="number" step="0.01" min="0" placeholder="0.00" name="preco">
-                        </div>
+                    <p>Você será desconectado do sistema.</p>
+
+                    <div class="botoes-modal">
+
+                        <button class="btn-cancelar" onclick="fecharModal()">
+                            Cancelar
+                        </button>
+
+                        <a href="logout.php">
+                            <button class="btn-sair">
+                                Sair
+                            </button>
+                        </a>
                     </div>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <label>Quantidade em Estoque</label>
-                            <input type="number" placeholder="0" name="qtd">
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label>Imagem do Produto</label>
-                        <input type="text" placeholder="Coloque o caminho da imagem ou URL" name="imagem"
-                            accept="image/*">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Descrição do Produto</label>
-                        <textarea name="desc" placeholder="Digite uma descrição detalhada do produto..."></textarea>
-                    </div>
-
-                    <button class="btn">Cadastrar Produto</button>
-
-
-                </form>
-                <a href="estoque.php" class="btn-voltar">Voltar</a>
+                </div>
             </div>
+        </div>
 
+        <div class="content">
+            <div class="content-title">
+                <h2>Painel de Controle</h2>
+                <span>ConstruTech</span>
+            </div>
+            <div class="container">
+                <div class="form-card">
+                    <h2>Cadastrar Novo Produto</h2>
+
+                    <form action="cadastro_produto.php" method="POST">
+                        <div class="form-group">
+                            <label>Nome do Produto</label>
+                            <input type="text" placeholder="Digite o nome do produto" name="nome">
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Categoria</label>
+                                <select name="cat">
+                                    <option value="">Selecione</option value="">
+                                    <option value="Bruto">Produtos Brutos</option>
+                                    <option value="Ferramentas">Ferramentas</option>
+                                    <option value="Acabamento">Acabamento</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Preço (R$)</label>
+                                <input type="number" step="0.01" min="0" placeholder="0.00" name="preco">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Quantidade em Estoque</label>
+                                <input type="number" placeholder="0" name="qtd">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Imagem do Produto</label>
+                            <input type="text" placeholder="Coloque o caminho da imagem ou URL" name="imagem"
+                                accept="image/*">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descrição do Produto</label>
+                            <textarea name="desc" placeholder="Digite uma descrição detalhada do produto..."></textarea>
+                        </div>
+
+                        <button class="btn">Cadastrar Produto</button>
+
+
+                    </form>
+                    <a href="estoque.php" class="btn-voltar">Voltar</a>
+                </div>
+
+            </div>
         </div>
     </main>
+
+    <?php
+    require_once './partials/footer.php'
+    ?>
+
 </body>
 
 </html>

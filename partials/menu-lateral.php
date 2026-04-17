@@ -2,7 +2,7 @@
     <div class="menu-vertical-container">
         <div class="img-user">
             <img src="Imagem/login-user.jpg" alt="">
-            <div class="name-user">Bem Vindo de volta <?php $nome ?>!</div>
+            <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
         </div>
         <div class="menu-vertical">
             <nav class="">

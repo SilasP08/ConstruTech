@@ -92,6 +92,10 @@ header {
     padding: 1.5rem;
 }
 
+.name-user {
+    font-size: 14px;
+}
+
 main {
     display: flex;
 }

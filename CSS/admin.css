@@ -38,7 +38,7 @@ header {
 }
 
 .logo-header img {
-    height: 70px;
+    height: 100px;
 }
 
 .search-header {
@@ -90,6 +90,14 @@ header {
 
 .img-user-header p {
     padding: 1.5rem;
+}
+
+.name-user {
+    font-size: 14px;
+}
+
+.name-user {
+    font-size: 14px;
 }
 
 main {
