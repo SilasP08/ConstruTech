@@ -8,8 +8,8 @@
 </head>
 <body>
     <header>
-        <div class="logo-header">
-            <img src="Imagem/logo_principal.png" alt="">
+       <div class="logo-header">
+            <img src="Imagem/logo.png" alt="">
         </div>
     </header>
 
@@ -39,7 +39,7 @@
 
                     
                     <button type="submit" class="btn-login">
-                        <a href="admin.php">Entrar</a>
+                       Entrar
                     </button>
                 </form>
             </div>

@@ -37,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <header>
-        <div class="logo-header">
-            <img src="Imagem/logo_principal.png" alt="">
+       <div class="logo-header">
+            <img src="Imagem/logo.png" alt="">
         </div>
 
         <div class="search-header">
@@ -52,45 +52,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </header>
     <main>
+        
         <div class="menu-vertical-container">
-            <div class="img-user">
-                <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
-            </div>
-            <div class="menu-vertical">
-                <nav class="">
-                    <ul>
-                        <li>
-                            <a href="admin.php">
-                                <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
-                            </a>
-                        </li>
+    <div class="img-user">
+        <img src="Imagem/login-user.jpg" alt="">
+        <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
+    </div>
+    
+    <div class="menu-vertical">
+        <nav>
+            <ul>
+                <a href="admin.php">
+                    <li class="active">
+                        <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
+                    </li>
+                </a>
 
-                        <li class="active">
-                            <a href="estoque.php">
-                                <i class="bi bi-archive-fill"></i> Estoque
-                            </a>
-                        </li>
+                <a href="estoque.php">
+                    <li>
+                        <i class="bi bi-archive-fill"></i> Estoque
+                    </li>
+                </a>
 
-                        <li>
-                            <a href="vendas.html">
-                                <i class="bi bi-receipt"></i> Vendas
-                            </a>
-                        </li>
+                <a href="vendas.html">
+                    <li>
+                        <i class="bi bi-receipt"></i> Vendas
+                    </li>
+                </a>
 
-                        <li>
-                            <a href="funcionarios.html">
-                                <i class="bi bi-person-vcard"></i>Funcionarios
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="logout-btn" onclick="abrirModal()">
-                    <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
-                </div>
-            </div>
+                <a href="funcionarios.html">
+                    <li>
+                        <i class="bi bi-person-vcard"></i>Funcionarios
+                    </li>
+                </a>
+
+                <a href="config.php">
+                    <li>
+                        <i class="bi bi-gear-fill"></i>Configurações
+                    </li>
+                </a>
+            </ul>
+        </nav>
+        
+        <div class="logout-btn" onclick="abrirModal()">
+            <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
         </div>
-
+    </div>
+</div>
         <div id="modalLogout" class="logout-modal">
             <div class="logout-modal-content">
 
@@ -111,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             Cancelar
                         </button>
 
-                        <a href="logout.php">
+                        <a href="index.php">
                             <button class="btn-sair">
                                 Sair
                             </button>

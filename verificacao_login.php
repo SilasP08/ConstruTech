@@ -5,14 +5,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['senha'];
 
     $construtech = "admin@admin.constech";
-
-    if ($email === $construtech) {
+    $senha_certa = "123";
+    if ($email === $construtech and $senha === $senha_certa) {
 
         header("Location: admin.php");
         exit;
 
     } else {
-        echo "Acesso permitido apenas para emails admin@admin.constech";
+        echo "Acesso negado senha ou email incorretos";
     }
 }
 ?>

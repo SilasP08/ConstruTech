@@ -413,7 +413,7 @@ main {
     height: auto;
 }
 
-.chart-card h3 {
+.card-header {
     margin-bottom: 10px;
     color: #fff;
 }
@@ -502,7 +502,6 @@ main {
 .employee-card {
     height: auto; 
     width: 100%;
-    padding-right: 40px;
     margin-top: 1.8rem;
     margin-left: 20px;
 }
@@ -523,7 +522,6 @@ main {
     cursor: pointer;
 }
 
-
 .employee img {
     width: 100px;
     height: 100px;
@@ -533,14 +531,10 @@ main {
     transition: 0.2s ease;
 }
 
-/* Nome */
-
 .employee span {
     font-size: 14px;
     color: #aaa;
 }
-
-/* Hover bonito */
 
 .employee:hover img {
     border: 3px solid var(--primary);

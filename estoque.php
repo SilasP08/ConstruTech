@@ -14,13 +14,13 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/estoque.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <title><?php echo $nomeEmp  ?> - Admin Dashboard</title>
+    <title><?php echo $nomeEmp ?> - Admin Dashboard</title>
 </head>
 
 <body>
     <header>
         <div class="logo-header">
-            <img src="Imagem/logo_principal.png" alt="">
+            <img src="Imagem/logo.png" alt="">
         </div>
 
         <div class="search-header">
@@ -42,18 +42,18 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
     ?>
     <main>
+
         <div class="menu-vertical-container">
             <div class="img-user">
                 <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">
-                    <p>Bem Vindo de volta <?php echo $nome_admin ?> !</p>
-                </div>
+                <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
             </div>
+
             <div class="menu-vertical">
                 <nav>
                     <ul>
                         <a href="admin.php">
-                            <li>
+                            <li >
                                 <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
                             </li>
                         </a>
@@ -110,7 +110,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                             Cancelar
                         </button>
 
-                        <a href="logout.php">
+                        <a href="index.php">
                             <button class="btn-sair">
                                 Sair
                             </button>
@@ -201,7 +201,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                     print '
                                 <div class="linha">
                                     <div class="produto">' . $produto['nome'] . '</div>
-                                    <div class="preco">R$ ' . $produto['preco'] . '</div>
+                                    <div class="preco">R$ ' . number_format($produto['preco'], 2, ',', '.') . '</div>
                                     <div class="categoria">' . $produto['cat'] . '</div>
                                     <div class="quantidade">
                                         <span class="qtd">
@@ -210,7 +210,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                     </div>
 
                                     <div class="preco-total">
-                                        R$ ' . ($produto['preco'] * $produto['qtd']) . '
+                                        R$ ' . number_format(($produto['preco'] * $produto['qtd']), 2, ',', '.') . '
 
                                         <i class="bi bi-pencil-square btn-editar"
                                         onclick=\'abrirModal(' . $json . ')\'></i>
@@ -311,10 +311,10 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                             print '
                               <div class="rodape-tabela">
                                 <div class="valor">Valor Total: </div>
-                                <div class="preco-final"> ' . ($total == 0 ? '--' : $total) . '</div>
+                                <div class="preco-final"> R$ ' . ($total == 0 ? '--' : number_format($total, 2, ',', '.')) . '</div>
                                 <div class="#">' . $categoria_nome . '</div>
                                 <div class="quantidade-final">' . ($qtd_total == 0 ? '--' : $qtd_total) . '</div>
-                                <div class="preco-total-final">' . ($total_total == 0 ? '--' : $total_total) . '</div>
+                                <div class="preco-total-final"> R$ ' . ($total_total == 0 ? '--' : number_format($total_total, 2, ',', '.')) . '</div>
                             ';
 
 
@@ -335,7 +335,6 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
     <?php
     require "./partials/footer.php";
     ?>
-
 
     <script src="./JS/logoutModal.js"></script>
     <script src="./JS/estoque.js"></script>

@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <header>
-        <div class="logo-header">
-            <img src="Imagem/logo_principal.png" alt="">
+       <div class="logo-header">
+            <img src="Imagem/logo.png" alt="">
         </div>
 
         <div class="search-header">
@@ -39,52 +39,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
 
     <main>
+
         <div class="menu-vertical-container">
-            <div class="img-user">
-                <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
-            </div>
-            <div class="menu-vertical">
-                <nav>
-                    <ul>
-                        <a href="admin.php">
-                            <li>
-                                <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
-                            </li>
-                        </a>
+    <div class="img-user">
+        <img src="Imagem/login-user.jpg" alt="">
+        <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
+    </div>
+    
+    <div class="menu-vertical">
+        <nav>
+            <ul>
+                <a href="admin.php">
+                    <li >
+                        <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
+                    </li>
+                </a>
 
-                        <a href="estoque.php">
-                            <li>
-                                <i class="bi bi-archive-fill"></i> Estoque
-                            </li>
-                        </a>
+                <a href="estoque.php">
+                    <li>
+                        <i class="bi bi-archive-fill"></i> Estoque
+                    </li>
+                </a>
 
-                        <a href="vendas.html">
-                            <li>
-                                <i class="bi bi-receipt"></i> Vendas
-                            </li>
-                        </a>
+                <a href="vendas.html">
+                    <li>
+                        <i class="bi bi-receipt"></i> Vendas
+                    </li>
+                </a>
 
-                        <a href="funcionarios.html">
-                            <li>
-                                <i class="bi bi-person-vcard"></i>Funcionarios
-                            </li>
-                        </a>
+                <a href="funcionarios.html">
+                    <li>
+                        <i class="bi bi-person-vcard"></i>Funcionarios
+                    </li>
+                </a>
 
-                        <a href="config.php">
-                            <li class="active">
-                                <i class="bi bi-gear-fill"></i>Configurações
-                            </li>
-                        </a>
-                    </ul>
-                </nav>
-
-                <div class="logout-btn" onclick="abrirModal()">
-                    <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
-                </div>
-            </div>
+                <a href="config.php">
+                    <li class="active">
+                        <i class="bi bi-gear-fill"></i>Configurações
+                    </li>
+                </a>
+            </ul>
+        </nav>
+        
+        <div class="logout-btn" onclick="abrirModal()">
+            <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
         </div>
-
+    </div>
+</div>
         <div id="modalLogout" class="logout-modal">
             <div class="logout-modal-content">
 
@@ -105,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             Cancelar
                         </button>
 
-                        <a href="logout.php">
+                        <a href="index.php">
                             <button class="btn-sair">
                                 Sair
                             </button>
@@ -124,17 +125,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
 
     <form method="POST">
-    <input type="text" name="empresa">
-    <input type="text" name="gerente">
-    <input type="number" placeholder="defina o nivel maximo ou estoque alto" name="alto">
-    <input type="number" placeholder="defina o nivel minimo ou estoque baixo" name="baixo">
+        <input type="text" name="empresa">
+        <input type="text" name="gerente">
+        <input type="number" placeholder="defina o nivel maximo ou estoque alto" name="alto">
+        <input type="number" placeholder="defina o nivel minimo ou estoque baixo" name="baixo">
 
-    <button type="submit">Salvar</button>
-</form>
+        <button type="submit">Salvar</button>
+    </form>
 
-    <footer>
-        <p><i class="bi bi-c-circle"></i> ConstruTech - 2026</p>
-    </footer>
+    <?php
+    require_once "./partials/footer.php";
+    ?>
 
     <script src="./JS/logoutModal.js"></script>
 </body>

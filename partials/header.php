@@ -1,5 +1,7 @@
 <header>
-    <div class="logo-header">
+   <div class="logo-header">
+            <img src="Imagem/logo.png" alt="">
+        </div>
         <img src="Imagem/logo_principal.png" alt="">
     </div>
 

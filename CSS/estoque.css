@@ -38,7 +38,7 @@ header {
 }
 
 .logo-header img {
-    height: 70px;
+    height: 100px;
 }
 
 .search-header {
@@ -102,7 +102,7 @@ main {
 
 .menu-vertical-container {
     background: #111111;
-    height: 90vh;
+    height: 91.5vh;
     width: 15%;
     color: #f8f8f8;
     display: flex;
@@ -490,6 +490,16 @@ section {
     border-right: 1px solid #ffffff14;
 }
 
+.preco-total i {
+    margin-left: 15px;
+}
+
+.preco-total i:hover {
+    color: var(--primary);
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
 .quantidade span {
     font-size: 16px;
 }
@@ -514,11 +524,6 @@ section {
 
 .valor {
     color: var(--primary);
-}
-
-i:hover {
-    color: var(--primary);
-    transition: 0.3s ease;
 }
 
 .estoque-header {
@@ -615,7 +620,6 @@ i:hover {
     border-radius: 10px;
 }
 
-/* FORM */
 .modal-form {
     width: 60%;
     padding: 25px;
@@ -670,7 +674,7 @@ i:hover {
 }
 
 .btn-salvar:hover {
-    filter: brightness(115%);
+    filter: brightness(110%);
     transform: scale(1.05);
 }
 

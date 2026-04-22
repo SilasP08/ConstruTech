@@ -13,9 +13,10 @@ require_once 'init.php';
 </head>
 <body>
     <header>
-        <div class="logo-header">
+       <div class="logo-header">
             <img src="Imagem/logo.png" alt="">
         </div>
+        
 
         <div class="search-header">
             <input type="text" placeholder="Pesquisar...">
@@ -29,55 +30,53 @@ require_once 'init.php';
     </header>
 
     <main>
-        
-        <!-- Menu Vertical -->
+
         <div class="menu-vertical-container">
-            <div class="img-user">
-                <img src="Imagem/login-user.jpg" alt="">
-                <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
-            </div>
-            
-            <div class="menu-vertical">
-                <nav>
-                    <ul>
-                        <a href="admin.php">
-                            <li class="active">
-                                <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
-                            </li>
-                        </a>
+    <div class="img-user">
+        <img src="Imagem/login-user.jpg" alt="">
+        <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
+    </div>
+    
+    <div class="menu-vertical">
+        <nav>
+            <ul>
+                <a href="admin.php">
+                    <li class="active">
+                        <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
+                    </li>
+                </a>
 
-                        <a href="estoque.php">
-                            <li>
-                                <i class="bi bi-archive-fill"></i> Estoque
-                            </li>
-                        </a>
+                <a href="estoque.php">
+                    <li>
+                        <i class="bi bi-archive-fill"></i> Estoque
+                    </li>
+                </a>
 
-                        <a href="vendas.html">
-                            <li>
-                                <i class="bi bi-receipt"></i> Vendas
-                            </li>
-                        </a>
+                <a href="vendas.html">
+                    <li>
+                        <i class="bi bi-receipt"></i> Vendas
+                    </li>
+                </a>
 
-                        <a href="funcionarios.html">
-                            <li>
-                                <i class="bi bi-person-vcard"></i>Funcionarios
-                            </li>
-                        </a>
+                <a href="funcionarios.html">
+                    <li>
+                        <i class="bi bi-person-vcard"></i>Funcionarios
+                    </li>
+                </a>
 
-                        <a href="config.php">
-                            <li>
-                                <i class="bi bi-gear-fill"></i>Configurações
-                            </li>
-                        </a>
-                    </ul>
-                </nav>
-                
-                <div class="logout-btn" onclick="abrirModal()">
-                    <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
-                </div>
-            </div>
+                <a href="config.php">
+                    <li>
+                        <i class="bi bi-gear-fill"></i>Configurações
+                    </li>
+                </a>
+            </ul>
+        </nav>
+        
+        <div class="logout-btn" onclick="abrirModal()">
+            <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
         </div>
-
+    </div>
+</div>
         <div id="modalLogout" class="logout-modal">
             <div class="logout-modal-content">
 
@@ -98,7 +97,7 @@ require_once 'init.php';
                             Cancelar
                         </button>
 
-                        <a href="logout.php">
+                        <a href="index.php">
                             <button class="btn-sair">
                                 Sair
                             </button>
@@ -191,7 +190,6 @@ require_once 'init.php';
                     </div>
 
                     <div class="employees-container">
-
                         <div class="employee">
                             <img src="Imagem/vicente.jpg" alt="Funcionario">
                             <span>Vicente Souza</span>
@@ -218,9 +216,9 @@ require_once 'init.php';
         </div>
     </main>
 
-    <footer>
-        <p><i class="bi bi-c-circle"></i> ConstruTech - 2026</p>
-    </footer>
+    <?php
+    require_once "./partials/footer.php";
+    ?>
 
     <script src="./JS/logoutModal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

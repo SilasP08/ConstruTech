@@ -38,7 +38,7 @@ header {
 }
 
 .logo-header img {
-    height: 70px;
+    height: 100px;
 }
 
 .search-header {
@@ -390,8 +390,8 @@ input:focus,
 select:focus, 
 textarea:focus {
     outline: none;
-    border-color: #00a86b;
-    box-shadow: 0 0 5px rgba(0,168,107,0.3);
+    border-color: var(--primary);
+    box-shadow: 0 0 5px var(--primary);
 }
 
 textarea {
@@ -418,12 +418,12 @@ textarea {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .btn:hover {
-    background-color: #ffae00;
-    transform: scale(1.02);
+    transition: 0.2s ease-in;
+    transform: scale(1.05);
+    filter: brightness(110%);
 }
 
 .btn-voltar {
@@ -445,8 +445,9 @@ textarea {
 }
 
 .btn-voltar:hover {
-    background-color: #ffae00;
-    transform: scale(1.02);
+    transition: 0.2s ease-in;
+    transform: scale(1.05);
+    filter: brightness(110%);
 }
 
 footer {
