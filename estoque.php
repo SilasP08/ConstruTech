@@ -14,7 +14,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/estoque.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <title><?php echo $nomeEmp ?> - Admin Dashboard</title>
+    <title><?php echo $nomeEmp ?> - Estoque</title>
 </head>
 
 <body>
@@ -53,7 +53,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                 <nav>
                     <ul>
                         <a href="admin.php">
-                            <li >
+                            <li>
                                 <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
                             </li>
                         </a>
@@ -134,7 +134,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                         <div class="cabecalho">
                             <div>Produto</div>
                             <div>Preço</div>
-                            <form method="GET">
+                             <form method="GET">
                                 <div class="cabecalho-select">
                                     <div class="select-selected">
                                         <?php
@@ -159,7 +159,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
                                     </div>
                                 </div>
-                                <!-- <select onchange="filtrarCategoria(this.value)">
+                                <!-- <select onchange="filtrarCategoria(this.value)">           <-------- NÃO DESCOMENTE - QUEBRA O CODIGO
 
                                     <option value="">Categoria<i class="bi bi-caret-down-fill"></i></option>
 
@@ -181,48 +181,42 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                         <div id="tabelaProdutos">
 
                             <?php
+                                foreach ($_SESSION['produtos'] as $produto) {
 
-                            foreach ($_SESSION['produtos'] as $produto) {
+                                    // $cor = '';
+                                    if($produto['qtd'] >= $produto['limite_alto']){
+                                        $simbol = '<i style="color: green; margin-right: 10px;" class="bi bi-check-circle-fill"></i>';
+                                    } elseif ($produto['qtd'] <= $produto['limite_baixo'] ) {
+                                        $simbol = '<i style="color: red; margin-right: 10px;" class="bi bi-exclamation-triangle-fill"></i>';
+                                    } else {
+                                        $simbol = '<i style="color: yellow; margin-right: 10px; font-size:" class="bi bi-exclamation-diamond-fill"></i>';
+                                    }
 
-                                $cor = '';
+                                    $json = htmlspecialchars(json_encode($produto), ENT_QUOTES, 'UTF-8');
 
-                                if ($produto['qtd'] >= $nivel_max) {
-                                    $simbol = '<i style="color: green; margin-right: 10px;" class="bi bi-check-circle-fill"></i>';
-                                } elseif ($produto['qtd'] <= $nivel_min) {
-                                    $simbol = '<i style="color: red; margin-right: 10px;" class="bi bi-exclamation-triangle-fill"></i>';
-                                } else {
-                                    $simbol = '<i style="color: yellow; margin-right: 10px; font-size:" class="bi bi-exclamation-diamond-fill"></i>';
-                                }
+                                    if ($categoria_get === '' || $produto['cat'] === $categoria_get) {
 
-                                $json = htmlspecialchars(json_encode($produto), ENT_QUOTES, 'UTF-8');
+                                        print '
+                                        <div class="linha">
+                                        <div class="produto">' . $produto['nome'] . '</div>
+                                        <div class="preco">R$ ' . number_format($produto['preco'], 2, ',', '.') . '</div>
+                                        <div class="categoria">' . $produto['cat'] . '</div>
+                                        <div class="quantidade">
+                                            <span class="qtd">
+                                                ' . $simbol . $produto['qtd'] . '
+                                            </span>
+                                        </div>
 
+                                        <div class="preco-total">
+                                            R$ ' . number_format(($produto['preco'] * $produto['qtd']), 2, ',', '.') . '
 
-                                if ($categoria_get === '' || $produto['cat'] === $categoria_get) {
-                                    print '
-                                <div class="linha">
-                                    <div class="produto">' . $produto['nome'] . '</div>
-                                    <div class="preco">R$ ' . number_format($produto['preco'], 2, ',', '.') . '</div>
-                                    <div class="categoria">' . $produto['cat'] . '</div>
-                                    <div class="quantidade">
-                                        <span class="qtd">
-                                            ' . $simbol . $produto['qtd'] . '
-                                        </span>
+                                            <i class="bi bi-pencil-square btn-editar"
+                                            onclick=\'abrirModal(' . $json . ')\'></i>
+                                        </div>
                                     </div>
-
-                                    <div class="preco-total">
-                                        R$ ' . number_format(($produto['preco'] * $produto['qtd']), 2, ',', '.') . '
-
-                                        <i class="bi bi-pencil-square btn-editar"
-                                        onclick=\'abrirModal(' . $json . ')\'></i>
-                                    </div>
-                                </div>
-                                ';
-                                }
-
-
-                                // print_r($_SESSION);
-                            }
-                            ;
+                                    ';
+                                    }
+                                };
                             ?>
 
                             <div id="modalProduto" class="modal">
@@ -290,45 +284,64 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                 </div>
                             </div>
                             
-                            <?php
-                            $total = 0;
-                            $total_total = 0;
-                            $qtd_total = 0;
-                            $categoria_nome = 'Todas';
+                                <?php
+                                    $total = 0;
+                                    $total_total = 0;
+                                    $qtd_total = 0;
+                                    $categoria_nome = 'Todas';
 
-                            if ($categoria_get !== '' && isset($categoria[$categoria_get])) {
-                                $categoria_nome = $categoria[$categoria_get];
-                            }
-                            foreach ($_SESSION['produtos'] as $produto) {
+                                    if ($categoria_get !== '' && isset($categoria[$categoria_get])) {
+                                        $categoria_nome = $categoria[$categoria_get];
+                                    }
+                                    foreach ($_SESSION['produtos'] as $produto) {
 
-                                if ($categoria_get === '' || $produto['cat'] === $categoria_get) {
-                                    $soma = ($produto['preco'] * $produto['qtd']);
-                                    $total = $total + $produto['preco'];
-                                    $total_total = $total_total + $soma;
-                                    $qtd_total = $qtd_total + $produto['qtd'];
-                                }
-                            }
-                            print '
-                              <div class="rodape-tabela">
-                                <div class="valor">Valor Total: </div>
-                                <div class="preco-final"> R$ ' . ($total == 0 ? '--' : number_format($total, 2, ',', '.')) . '</div>
-                                <div class="#">' . $categoria_nome . '</div>
-                                <div class="quantidade-final">' . ($qtd_total == 0 ? '--' : $qtd_total) . '</div>
-                                <div class="preco-total-final"> R$ ' . ($total_total == 0 ? '--' : number_format($total_total, 2, ',', '.')) . '</div>
-                            ';
+                                        if ($categoria_get === '' || $produto['cat'] === $categoria_get) {
+                                            $soma = ($produto['preco'] * $produto['qtd']);
+                                            $total = $total + $produto['preco'];
+                                            $total_total = $total_total + $soma;
+                                            $qtd_total = $qtd_total + $produto['qtd'];
+                                        }
+                                    }
+                                    print '
+                                    <div class="rodape-tabela">
+                                        <div class="valor">Valor Total: </div>
+                                        <div class="preco-final"> R$ ' . ($total == 0 ? '--' : number_format($total, 2, ',', '.')) . '</div>
+                                        <div class="#">' . $categoria_nome . '</div>
+                                        <div class="quantidade-final">' . ($qtd_total == 0 ? '--' : $qtd_total) . '</div>
+                                        <div class="preco-total-final"> R$ ' . ($total_total == 0 ? '--' : number_format($total_total, 2, ',', '.')) . '</div>
+                                    ';
+                                ?>
 
-
-                            ?>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="legenda-container">
+                        <div class="legenda-item">
+                            <i style="color: green; margin-right: 10px;" class="bi bi-check-circle-fill"></i>
+                            <p class="travessao">—</p>
+                            <p>Estoque ideal</p>
+                        </div>
+
+                        <div class="legenda-item">
+                            <i style="color: yellow; margin-right: 10px; font-size:" class="bi bi-exclamation-diamond-fill"></i>
+                            <p class="travessao">—</p>
+                            <p>Estoque abaixo do ideal</p>
+                        </div>
+
+                        <div class="legenda-item">
+                            <i style="color: red; margin-right: 10px;" class="bi bi-exclamation-triangle-fill"></i>
+                            <p class="travessao">—</p>
+                            <p>Estoque Crítico</p>
+                        </div>
+                    </div>
+                    
                     <div class="estoque-header">
                         <input type="text" id="searchProduto" placeholder="Buscar produto...">
                         <a href="cadastro_produto.php"><i class="bi bi-plus"></i> Adicionar</a>
                     </div>
                 </div>
-        </div>
-        </section>
+            </section>
         </div>
     </main>
 

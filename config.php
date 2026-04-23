@@ -5,18 +5,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['action']) && $_POST['action'] === 'limpar_estoque') {
         $_SESSION['produtos'] = [];
-        $_SESSION['msg'] = "Estoque limpo com sucesso!";
+        $_SESSION['success'] = "Estoque limpo com sucesso!";
 
         header("Location: config.php");
         exit;
     }
 
+    $contato = $_POST['contato'] ?? '';
+    $contato = preg_replace('/\D/', '', $contato);
+
+    if (strlen($contato) < 10 || strlen($contato) > 11) {
+        $_SESSION['error'] = "Contato inválido! Digite um telefone válido.";
+        header("Location: config.php");
+        exit;
+    }
+
+    $_SESSION['config']['contato'] = $_POST['contato'];
     $_SESSION['config']['empresa'] = $_POST['empresa'];
     $_SESSION['config']['gerente'] = $_POST['gerente'];
-    $_SESSION['config']['estoque_alto'] = $_POST['alto'];
-    $_SESSION['config']['estoque_baixo'] = $_POST['baixo'];
-    
-    $_SESSION['msg'] = "Configurações salvas com sucesso!";
+
+
+    $_SESSION['success'] = "Configurações salvas com sucesso!";
 
     header("Location: config.php");
     exit;
@@ -138,9 +147,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="config-box">
                     <h3>Configurações Gerais</h3>
                     
-                    <?php if(isset($_SESSION['msg'])): ?>
+                    <?php if(isset($_SESSION['success'])): ?>
                         <div class="alert-success">
-                            <?= $_SESSION['msg']; unset($_SESSION['msg']); ?>
+                            <?= $_SESSION['success']; unset($_SESSION['success']); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if(isset($_SESSION['error'])): ?>
+                        <div class="alert-error">
+                            <?= $_SESSION['error']; unset($_SESSION['error']); ?>
                         </div>
                     <?php endif; ?>
 
@@ -156,13 +171,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="input-group">
-                            <label>Estoque Alto</label>
-                            <input type="number" name="alto" value="<?= $nivel_max ?>">
-                        </div>
-
-                        <div class="input-group">
-                            <label>Estoque Baixo</label>
-                            <input type="number" name="baixo" value="<?= $nivel_min ?>">
+                            <label>Contato</label>
+                            <input 
+                                type="tel" 
+                                name="contato"
+                                pattern="\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}"
+                                placeholder="(11) 99999-9999"
+                                value="<?= $_SESSION['config']['contato'] ?? '' ?>"
+                            >
                         </div>
 
                         <button class="btn-save">
@@ -175,7 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h3>Ações do Sistema</h3>
 
                     <div class="action-item">
-                        <div>
+                        <div class="input-container">
                             <strong>Limpar Estoque</strong>
                             <p>Remove todos os produtos</p>
                         </div>
@@ -183,30 +199,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <input type="hidden" name="action" value="limpar_estoque">
                             <button class="btn-action danger">Limpar</button>
                         </form>
-                    </div>
-
-                    <div class="action-item">
-                        <div>
-                            <strong>Exportar Estoque</strong>
-                            <p>Baixar em CSV</p>
-                        </div>
-                        <button class="btn-action">Exportar</button>
-                    </div>
-
-                    <div class="action-item">
-                        <div>
-                            <strong>Importar Produtos</strong>
-                            <p>Enviar planilha</p>
-                        </div>
-                        <button class="btn-action">Importar</button>
-                    </div>
-
-                    <div class="action-item">
-                        <div>
-                            <strong>Destacar Produtos</strong>
-                            <p>Marcar como destaque</p>
-                        </div>
-                        <button class="btn-action">Destacar</button>
                     </div>
                 </div>
             </div>

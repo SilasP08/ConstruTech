@@ -167,7 +167,7 @@ require_once 'init.php';
                     <div class="linha">
                         <div>#0000</div>
                         <div>Pedro Lima</div>
-                        <div class="status aprovado">Cancelado</div>
+                        <div class="status aprovado">Aprovado</div>
                         <div>Tinta</div>
                         <div>Ana Costa</div>
                         <div>R$ 80,00</div>
@@ -176,7 +176,7 @@ require_once 'init.php';
                     <div class="linha">
                         <div>#0000</div>
                         <div>Pedro Lima</div>
-                        <div class="status aprovado">Cancelado</div>
+                        <div class="status aprovado">Aprovado</div>
                         <div>Tinta</div>
                         <div>Ana Costa</div>
                         <div>R$ 80,00</div>
@@ -185,7 +185,7 @@ require_once 'init.php';
                     <div class="linha">
                         <div>#0000</div>
                         <div>Pedro Lima</div>
-                        <div class="status aprovado">Cancelado</div>
+                        <div class="status aprovado">Aprovado</div>
                         <div>Tinta</div>
                         <div>Ana Costa</div>
                         <div>R$ 80,00</div>
@@ -194,7 +194,7 @@ require_once 'init.php';
                     <div class="linha">
                         <div>#0000</div>
                         <div>Pedro Lima</div>
-                        <div class="status aprovado">Cancelado</div>
+                        <div class="status aprovado">Aprovado</div>
                         <div>Tinta</div>
                         <div>Ana Costa</div>
                         <div>R$ 80,00</div>
@@ -203,7 +203,7 @@ require_once 'init.php';
                     <div class="linha">
                         <div>#0000</div>
                         <div>Pedro Lima</div>
-                        <div class="status aprovado">Cancelado</div>
+                        <div class="status aprovado">Aprovado</div>
                         <div>Tinta</div>
                         <div>Ana Costa</div>
                         <div>R$ 80,00</div>
@@ -212,7 +212,7 @@ require_once 'init.php';
                     <div class="linha">
                         <div>#0000</div>
                         <div>Pedro Lima</div>
-                        <div class="status aprovado">Cancelado</div>
+                        <div class="status aprovado">Aprovado</div>
                         <div>Tinta</div>
                         <div>Ana Costa</div>
                         <div>R$ 80,00</div>

@@ -103,7 +103,7 @@ main {
 
 .menu-vertical-container {
     background: #111111;
-    height: 91.5vh;
+    height: 100vh;
     width: 15%;
     color: #f8f8f8;
     display: flex;
@@ -371,7 +371,7 @@ section {
 }
 
 #tabelaProdutos {
-    min-height: 60vh; /* altura mínima da tabela */
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     background-color: var(--card);
@@ -434,7 +434,7 @@ section {
     position: relative;
     width: 100%;
     cursor: pointer;
-    z-index: 600;
+    z-index: 600;   
 }
 
 .select-selected {
@@ -457,6 +457,7 @@ section {
     margin-top: 5px;
     z-index: 1000;
 }
+
 
 .active-option {
     background: var(--primary);
@@ -561,6 +562,23 @@ section {
 
 .qtd {
     font-size: 10px;
+}
+
+.legenda-container {
+    display: flex;
+    width: 100%;
+    max-width: 75rem;
+    margin: 5px 0;
+    gap: 45px;
+}
+
+.legenda-item {
+    display: flex;
+
+}
+
+.travessao {
+    margin-right: 8px;
 }
 
 .modal {

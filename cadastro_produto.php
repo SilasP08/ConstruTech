@@ -13,7 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'cat' => $_POST['cat'],
         'qtd' => $_POST['qtd'],
         'imagem' => $_POST['imagem'],
-        'desc' => $_POST['desc']
+        'desc' => $_POST['desc'],
+        'limite_baixo' => $_POST['limite_baixo'],
+        'limite_alto' => $_POST['limite_alto']
     ];
     header('location: estoque.php?produtoadd=1');
     exit;
@@ -37,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <header>
-       <div class="logo-header">
+        <div class="logo-header">
             <img src="Imagem/logo.png" alt="">
         </div>
 
@@ -52,53 +54,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </header>
     <main>
-        
+
         <div class="menu-vertical-container">
-    <div class="img-user">
-        <img src="Imagem/login-user.jpg" alt="">
-        <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
-    </div>
-    
-    <div class="menu-vertical">
-        <nav>
-            <ul>
-                <a href="admin.php">
-                    <li class="active">
-                        <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
-                    </li>
-                </a>
+            <div class="img-user">
+                <img src="Imagem/login-user.jpg" alt="">
+                <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
+            </div>
 
-                <a href="estoque.php">
-                    <li>
-                        <i class="bi bi-archive-fill"></i> Estoque
-                    </li>
-                </a>
+            <div class="menu-vertical">
+                <nav>
+                    <ul>
+                        <a href="admin.php">
+                            <li class="active">
+                                <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
+                            </li>
+                        </a>
 
-                <a href="vendas.php">
-                    <li>
-                        <i class="bi bi-receipt"></i> Vendas
-                    </li>
-                </a>
+                        <a href="estoque.php">
+                            <li>
+                                <i class="bi bi-archive-fill"></i> Estoque
+                            </li>
+                        </a>
 
-                <a href="funcionarios.php">
-                    <li>
-                        <i class="bi bi-person-vcard"></i>Funcionarios
-                    </li>
-                </a>
+                        <a href="vendas.php">
+                            <li>
+                                <i class="bi bi-receipt"></i> Vendas
+                            </li>
+                        </a>
 
-                <a href="config.php">
-                    <li>
-                        <i class="bi bi-gear-fill"></i>Configurações
-                    </li>
-                </a>
-            </ul>
-        </nav>
-        
-        <div class="logout-btn" onclick="abrirModal()">
-            <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
+                        <a href="funcionarios.php">
+                            <li>
+                                <i class="bi bi-person-vcard"></i>Funcionarios
+                            </li>
+                        </a>
+
+                        <a href="config.php">
+                            <li>
+                                <i class="bi bi-gear-fill"></i>Configurações
+                            </li>
+                        </a>
+                    </ul>
+                </nav>
+
+                <div class="logout-btn" onclick="abrirModal()">
+                    <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
         <div id="modalLogout" class="logout-modal">
             <div class="logout-modal-content">
 
@@ -162,9 +164,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="row">
-                            <div class="form-group">
+                            <div class="titulo-qtd">
                                 <label>Quantidade em Estoque</label>
-                                <input type="number" placeholder="0" name="qtd" required>
+                            </div>
+
+                            <div class="form-qtd">
+
+                                <label class="qtd">Estoque Alto</label>
+                                <label class="qtd">Estoque Baixo</label>
+                                <label class="qtd">Estoque Atual</label>
+                                <input type="number" placeholder="0" name="limite_alto" required>
+                                <input type="number" placeholder="0" name="limite_baixo">
+                                <input type="number" placeholder="0" name="qtd">
                             </div>
 
                         </div>
@@ -193,7 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <?php
     require_once './partials/footer.php'
-    ?>
+        ?>
 
 </body>
 

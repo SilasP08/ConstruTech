@@ -16,12 +16,12 @@ if (!isset($_SESSION['config'])) {
     $_SESSION['config'] = [
         'empresa' => 'ConstruTech',
         'gerente' => 'Admin',
-        'estoque_alto' => 100,
-        'estoque_baixo' => 50
+        'contato' => '93056-9806'
     ];
 }
+
+$contato = $_SESSION['config']['contato'];
 $nomeEmp = $_SESSION['config']['empresa'];
 $nome_admin = $_SESSION['config']['gerente'];
-$nivel_max = $_SESSION['config']['estoque_alto'];
-$nivel_min = $_SESSION['config']['estoque_baixo'];
+
 // session_destroy();
