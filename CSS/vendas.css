@@ -10,7 +10,8 @@
 
 :root {
     --primary: #eeb333;
-    --card: #1f1f23
+    --card: #1f1f23;
+    --borderCard: #2a2a2a;
 }
 
 a {
@@ -64,7 +65,7 @@ header {
 }
 
 .search-header input:focus {
-    border: 1px solid #eeb333;
+    border: 1px solid var(--primary);
     background: #25252b;
 }
 
@@ -165,13 +166,13 @@ main {
 
 .menu-vertical li:hover {
     transition: 0.1s ease-in-out;
-    border-left: 4px solid #eeb333;
+    border-left: 4px solid var(--primary);
     background: #18181d;
     color: var(--primary);
 }
 
 .menu-vertical li.active {
-    border-left: 4px solid #eeb333;
+    border-left: 4px solid var(--primary);
     background: #18181d;
     color: var(--primary);
 }
@@ -342,32 +343,59 @@ main {
     filter: brightness(125%);
 }
 
-.filter-container {
-    background-color: var(--card);
-    height: 100px;
-    width: 100%;
-    border-radius: 12px;
-}
-
 .list-container {
-    border: 1px solid red;
-    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.list-container h2 {
-    font-size: 18px;
-    color: #dfdfdf;
-    font-weight: 400;
-}
-
-.current-sales {
-    height: max-content;
+.current-sales,
+.sales-history {
+    background: var(--card);
+    border: 1px solid var(--borderCard);
+    padding: 20px;
+    border-radius: 12px;
 }
 
 .linha {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #2a2a30;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 16px;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #888;
+    border-bottom: 2px solid var(--primary);
+}
+
+.linha:hover {
+    background: #1c1c20;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    width: fit-content;
+}
+
+.aprovado {
+    background: #2ecc71;
+}
+
+.pendente {
+    background: #f1c40f;
+    color: #000;
+}
+
+.cancelado {
+    background: #e74c3c;
 }
 
 footer {

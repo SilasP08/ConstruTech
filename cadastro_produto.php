@@ -74,13 +74,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </li>
                 </a>
 
-                <a href="vendas.html">
+                <a href="vendas.php">
                     <li>
                         <i class="bi bi-receipt"></i> Vendas
                     </li>
                 </a>
 
-                <a href="funcionarios.html">
+                <a href="funcionarios.php">
                     <li>
                         <i class="bi bi-person-vcard"></i>Funcionarios
                     </li>
@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form action="cadastro_produto.php" method="POST">
                         <div class="form-group">
                             <label>Nome do Produto</label>
-                            <input type="text" placeholder="Digite o nome do produto" name="nome">
+                            <input type="text" placeholder="Digite o nome do produto" name="nome" required>
                         </div>
 
                         <div class="row">
@@ -157,14 +157,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             <div class="form-group">
                                 <label>Preço (R$)</label>
-                                <input type="number" step="0.01" min="0" placeholder="0.00" name="preco">
+                                <input type="number" step="0.01" min="0" placeholder="0.00" name="preco" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group">
                                 <label>Quantidade em Estoque</label>
-                                <input type="number" placeholder="0" name="qtd">
+                                <input type="number" placeholder="0" name="qtd" required>
                             </div>
 
                         </div>

@@ -3,15 +3,26 @@ require_once 'init.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    if (isset($_POST['action']) && $_POST['action'] === 'limpar_estoque') {
+        $_SESSION['produtos'] = [];
+        $_SESSION['msg'] = "Estoque limpo com sucesso!";
+
+        header("Location: config.php");
+        exit;
+    }
+
     $_SESSION['config']['empresa'] = $_POST['empresa'];
     $_SESSION['config']['gerente'] = $_POST['gerente'];
     $_SESSION['config']['estoque_alto'] = $_POST['alto'];
     $_SESSION['config']['estoque_baixo'] = $_POST['baixo'];
+    
+    $_SESSION['msg'] = "Configurações salvas com sucesso!";
 
+    header("Location: config.php");
+    exit;
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/config.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
-    <title><?php echo $nomeEmp  ?> - Admin Dashboard</title>
+    <title><?php echo $nomeEmp  ?> - Configurações</title>
 </head>
 <body>
     <header>
@@ -41,51 +52,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
 
         <div class="menu-vertical-container">
-    <div class="img-user">
-        <img src="Imagem/login-user.jpg" alt="">
-        <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
-    </div>
-    
-    <div class="menu-vertical">
-        <nav>
-            <ul>
-                <a href="admin.php">
-                    <li >
-                        <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
-                    </li>
-                </a>
+            <div class="img-user">
+                <img src="Imagem/login-user.jpg" alt="">
+                <div class="name-user">Bem Vindo de volta <?php echo $nome_admin ?>!</div>
+            </div>
+            
+            <div class="menu-vertical">
+                <nav>
+                    <ul>
+                        <a href="admin.php">
+                            <li >
+                                <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
+                            </li>
+                        </a>
 
-                <a href="estoque.php">
-                    <li>
-                        <i class="bi bi-archive-fill"></i> Estoque
-                    </li>
-                </a>
+                        <a href="estoque.php">
+                            <li>
+                                <i class="bi bi-archive-fill"></i> Estoque
+                            </li>
+                        </a>
 
-                <a href="vendas.html">
-                    <li>
-                        <i class="bi bi-receipt"></i> Vendas
-                    </li>
-                </a>
+                        <a href="vendas.php">
+                            <li>
+                                <i class="bi bi-receipt"></i> Vendas
+                            </li>
+                        </a>
 
-                <a href="funcionarios.html">
-                    <li>
-                        <i class="bi bi-person-vcard"></i>Funcionarios
-                    </li>
-                </a>
+                        <a href="funcionarios.php">
+                            <li>
+                                <i class="bi bi-person-vcard"></i>Funcionarios
+                            </li>
+                        </a>
 
-                <a href="config.php">
-                    <li class="active">
-                        <i class="bi bi-gear-fill"></i>Configurações
-                    </li>
-                </a>
-            </ul>
-        </nav>
-        
-        <div class="logout-btn" onclick="abrirModal()">
-            <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
+                        <a href="config.php">
+                            <li class="active">
+                                <i class="bi bi-gear-fill"></i>Configurações
+                            </li>
+                        </a>
+                    </ul>
+                </nav>
+                
+                <div class="logout-btn" onclick="abrirModal()">
+                    <i class="bi bi-box-arrow-right"></i><a href="#">Logout</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
         <div id="modalLogout" class="logout-modal">
             <div class="logout-modal-content">
 
@@ -118,20 +130,88 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="content">
             <div class="content-title">
-                <h2>Configurações</h2>
+                <h2>Configurações do Sistema</h2>
                 <span>ConstruTech</span>
+            </div>
+
+            <div class="config-grid">
+                <div class="config-box">
+                    <h3>Configurações Gerais</h3>
+                    
+                    <?php if(isset($_SESSION['msg'])): ?>
+                        <div class="alert-success">
+                            <?= $_SESSION['msg']; unset($_SESSION['msg']); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <form method="POST">
+                        <div class="input-group">
+                            <label>Nome da Empresa</label>
+                            <input type="text" name="empresa" value="<?= $nomeEmp ?>">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Gerente</label>
+                            <input type="text" name="gerente" value="<?= $nome_admin ?>">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Estoque Alto</label>
+                            <input type="number" name="alto" value="<?= $nivel_max ?>">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Estoque Baixo</label>
+                            <input type="number" name="baixo" value="<?= $nivel_min ?>">
+                        </div>
+
+                        <button class="btn-save">
+                            Salvar alterações
+                        </button>
+                    </form>
+                </div>
+
+                <div class="config-box">
+                    <h3>Ações do Sistema</h3>
+
+                    <div class="action-item">
+                        <div>
+                            <strong>Limpar Estoque</strong>
+                            <p>Remove todos os produtos</p>
+                        </div>
+                        <form method="POST" onsubmit="return confirm('Tem certeza que deseja limpar o estoque?');">
+                            <input type="hidden" name="action" value="limpar_estoque">
+                            <button class="btn-action danger">Limpar</button>
+                        </form>
+                    </div>
+
+                    <div class="action-item">
+                        <div>
+                            <strong>Exportar Estoque</strong>
+                            <p>Baixar em CSV</p>
+                        </div>
+                        <button class="btn-action">Exportar</button>
+                    </div>
+
+                    <div class="action-item">
+                        <div>
+                            <strong>Importar Produtos</strong>
+                            <p>Enviar planilha</p>
+                        </div>
+                        <button class="btn-action">Importar</button>
+                    </div>
+
+                    <div class="action-item">
+                        <div>
+                            <strong>Destacar Produtos</strong>
+                            <p>Marcar como destaque</p>
+                        </div>
+                        <button class="btn-action">Destacar</button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
-
-    <form method="POST">
-        <input type="text" name="empresa">
-        <input type="text" name="gerente">
-        <input type="number" placeholder="defina o nivel maximo ou estoque alto" name="alto">
-        <input type="number" placeholder="defina o nivel minimo ou estoque baixo" name="baixo">
-
-        <button type="submit">Salvar</button>
-    </form>
 
     <?php
     require_once "./partials/footer.php";

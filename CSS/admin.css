@@ -10,7 +10,8 @@
 
 :root {
     --primary: #eeb333;
-    --card: #1f1f23
+    --card: #1f1f23;
+    --borderCard: #2a2a2a;
 }
 
 a {
@@ -357,7 +358,7 @@ main {
     padding: 20px;
     border-radius: 12px;
     height: 100px;
-    border: 1px solid #2a2a2a;
+    border: 1px solid var(--borderCard);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -389,7 +390,7 @@ main {
 .chart-card {
     background: var(--card);
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    border: 1px solid #2a2a2a;
+    border: 1px solid var(--borderCard);
     padding: 30px;
     border-radius: 12px;
     height: 270px;

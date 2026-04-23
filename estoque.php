@@ -64,13 +64,13 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                             </li>
                         </a>
 
-                        <a href="vendas.html">
+                        <a href="vendas.php">
                             <li>
                                 <i class="bi bi-receipt"></i> Vendas
                             </li>
                         </a>
 
-                        <a href="funcionarios.html">
+                        <a href="funcionarios.php">
                             <li>
                                 <i class="bi bi-person-vcard"></i>Funcionarios
                             </li>

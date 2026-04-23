@@ -10,7 +10,8 @@
 
 :root {
     --primary: #eeb333;
-    --card: #1f1f23
+    --card: #1f1f23;
+    --borderCard: #2a2a2a;
 }
 
 a {
@@ -64,7 +65,7 @@ header {
 }
 
 .search-header input:focus {
-    border: 1px solid #eeb333;
+    border: 1px solid var(--primary);
     background: #25252b;
 }
 
@@ -165,13 +166,13 @@ main {
 
 .menu-vertical li:hover {
     transition: 0.1s ease-in-out;
-    border-left: 4px solid #eeb333;
+    border-left: 4px solid var(--primary);
     background: #18181d;
     color: var(--primary);
 }
 
 .menu-vertical li.active {
-    border-left: 4px solid #eeb333;
+    border-left: 4px solid var(--primary);
     background: #18181d;
     color: var(--primary);
 }
@@ -341,6 +342,47 @@ main {
     transition: 0.2s ease-in;
     transform: scale(1.05);
     filter: brightness(125%);
+}
+
+.employee-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.linha {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 16px;
+    border-bottom: 1px solid #2a2a30;
+    align-items: center;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 12px;
+    align-items: center;
+    margin-top: 16px;
+    color: #888;
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary);
+}
+
+.linha:hover {
+    background: #1c1c20;
+}
+
+.cargo {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.vendas {
+    background: #2ecc71;
+    padding: 5px 10px;
+    border-radius: 6px;
+    width: fit-content;
 }
 
 footer {
