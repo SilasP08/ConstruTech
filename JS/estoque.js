@@ -11,6 +11,8 @@ function abrirModal(produto) {
     document.getElementById('preco').value = produto.preco;
     document.getElementById('cat').value = produto.cat;
     document.getElementById('qtd').value = produto.qtd;
+    document.getElementById('limite_alto').value = produto.limite_alto; 
+    document.getElementById('limite_baixo').value = produto.limite_baixo;
     document.getElementById('imagem').value = produto.imagem;
     document.getElementById('desc').value = produto.desc;
 

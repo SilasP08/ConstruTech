@@ -9,6 +9,8 @@ foreach ($_SESSION['produtos'] as &$produto) {
         $produto['preco'] = $_POST['preco'];
         $produto['cat'] = $_POST['cat'];
         $produto['qtd'] = $_POST['qtd'];
+        $produto['limite_alto'] = $_POST['limite_alto'];
+        $produto['limite_baixo'] = $_POST['limite_baixo'];
         $produto['imagem'] = $_POST['imagem'];
         $produto['desc'] = $_POST['desc'];
 

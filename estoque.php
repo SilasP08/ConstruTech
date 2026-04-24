@@ -252,10 +252,17 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
                                                     </select>
                                                     <label for="cat">Categoria</label>
                                                 </div>
-
                                                 <div class="input-group">
                                                     <input type="number" name="qtd" id="qtd" required>
-                                                    <label for="qtd">Quantidade</label>
+                                                    <label for="qtd">Estoque Atual</label>
+                                                </div>
+                                                <div class="input-group">
+                                                    <input type="number" name="limite_alto" id="limite_alto" required>
+                                                    <label for="limite_alto">Estoque Alto</label>
+                                                </div>
+                                                  <div class="input-group">
+                                                    <input type="number" name="limite_baixo" id="limite_baixo" required>
+                                                    <label for="limite_baixo">Estoque Baixo</label>
                                                 </div>
                                                 <div class="input-group">
                                                     <input type="text" placeholder="Coloque o caminho da imagem ou URL"

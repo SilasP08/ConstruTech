@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'qtd' => $_POST['qtd'],
         'imagem' => $_POST['imagem'],
         'desc' => $_POST['desc'],
-        'limite_baixo' => $_POST['limite_baixo'],
-        'limite_alto' => $_POST['limite_alto']
+        'limite_alto' => $_POST['limite_alto'],
+        'limite_baixo' => $_POST['limite_baixo']
     ];
     header('location: estoque.php?produtoadd=1');
     exit;

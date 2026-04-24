@@ -14,9 +14,9 @@ $produtos_gerais = [
         'preco' => 14.50,
         'cat' => 'Ferramentas',
         'qtd' => 150,
+        'limite_alto' => 80, 
         'limite_baixo' => 20,
-        'limite_alto' => 80,
-        'imagem' => 'https://images.unsplash.com/photo-1581147036324-cb0d38b8b1e4',
+        'imagem' => './Imagem/chave-de-fenda.webp',
         'desc' => 'Ferramenta essencial para parafusos'
     ],
     [
@@ -25,9 +25,9 @@ $produtos_gerais = [
         'preco' => 189.90,
         'cat' => 'Acabamento',
         'qtd' => 40,
+        'limite_alto' => 50, 
         'limite_baixo' => 10,
-        'limite_alto' => 50,
-        'imagem' => 'https://images.unsplash.com/photo-1581578731548-c64695cc6952',
+        'imagem' => './Imagem/tinta_acrilica.webp',
         'desc' => 'Tinta acrílica lavável para paredes'
     ],
     [
@@ -36,9 +36,9 @@ $produtos_gerais = [
         'preco' => 1.20,
         'cat' => 'Bruto',
         'qtd' => 1000,
-        'limite_baixo' => 300,
         'limite_alto' => 800,
-        'imagem' => 'https://images.unsplash.com/photo-1581093458791-9f3c3900dfb0',
+        'limite_baixo' => 300,
+        'imagem' => './Imagem/tijolo.jpg',
         'desc' => 'Tijolo resistente para alvenaria'
     ],
     [
@@ -47,9 +47,9 @@ $produtos_gerais = [
         'preco' => 249.90,
         'cat' => 'Ferramentas',
         'qtd' => 30,
-        'limite_baixo' => 5,
         'limite_alto' => 25,
-        'imagem' => 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc',
+        'limite_baixo' => 5,
+        'imagem' => './Imagem/furadeira.jpeg',
         'desc' => 'Furadeira potente para uso profissional'
     ],
     [
@@ -58,9 +58,9 @@ $produtos_gerais = [
         'preco' => 38.90,
         'cat' => 'Bruto',
         'qtd' => 200,
-        'limite_baixo' => 50,
         'limite_alto' => 150,
-        'imagem' => 'https://images.unsplash.com/photo-1590080877777-6c4c9b9b5c42',
+        'limite_baixo' => 50,
+        'imagem' => './Imagem/cimento.jfif',
         'desc' => 'Cimento resistente ideal para construção geral'
     ],
     [
@@ -69,9 +69,9 @@ $produtos_gerais = [
         'preco' => 79.90,
         'cat' => 'Acabamento',
         'qtd' => 35,
-        'limite_baixo' => 10,
         'limite_alto' => 40,
-        'imagem' => 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea',
+        'limite_baixo' => 10,
+        'imagem' => './Imagem/verniz.jfif',
         'desc' => 'Proteção e brilho para madeira'
     ],
     [
@@ -79,10 +79,10 @@ $produtos_gerais = [
         'nome' => 'Areia Média (m³)',
         'preco' => 120.00,
         'cat' => 'Bruto',
-        'qtd' => 80,
-        'limite_baixo' => 5,
+        'qtd' => 15,
         'limite_alto' => 20,
-        'imagem' => 'https://images.unsplash.com/photo-1568605114967-8130f3a36994',
+        'limite_baixo' => 5,
+        'imagem' => './Imagem/areia.jfif',
         'desc' => 'Areia de granulometria média para obras'
     ]
 
