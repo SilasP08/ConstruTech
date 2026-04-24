@@ -1,5 +1,10 @@
 <?php
 require_once 'init.php';
+$qtd_total = 0;
+foreach ($_SESSION['produtos'] as $produto) {
+    $qtd_total = $qtd_total + $produto['qtd'];
+}
+$count = count($_SESSION['funcionarios']);
 ?>
 
 <!DOCTYPE html>
@@ -7,6 +12,7 @@ require_once 'init.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="x-icon" href="./Imagem/icone.png"> <link rel="icon" type="x-icon" href="./Imagem/icone.png">
     <link rel="stylesheet" href="CSS/admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
     <title><?php echo $nomeEmp  ?> - Admin Dashboard</title>
@@ -115,22 +121,22 @@ require_once 'init.php';
             <div class="cards">
                 <div class="card">
                     <h4>Vendas Hoje</h4>
-                    <p class="card-value">R$ 1.250</p>
+                    <p class="card-value">R$ 3.700,00</p>
                 </div>
 
                 <div class="card">
                     <h4>Produtos</h4>
-                    <p class="card-value">320</p>
+                    <p class="card-value"><?php echo  $qtd_total; ?></p>
                 </div>
-
+                
                 <div class="card">
                     <h4>Funcionários</h4>
-                    <p class="card-value">12</p>
+                    <p class="card-value"><?php echo $count ?></p>
                 </div>
 
                 <div class="card">
                     <h4>Receita</h4>
-                    <p class="card-value">R$ 25.000</p>
+                    <p class="card-value">R$ 77.560,00</p>
                 </div>
             </div>
 
@@ -196,17 +202,17 @@ require_once 'init.php';
                         </div>
 
                         <div class="employee">
-                            <img src="Imagem/login-user.jpg" alt="Funcionario">
+                            <img src="Imagem/avartar_mulher.png" alt="Funcionario">
                             <span>Maria Souza</span>
                         </div>
 
                         <div class="employee">
-                            <img src="Imagem/login-user.jpg" alt="Funcionario">
+                            <img src="Imagem/avartar_homem.png" alt="Funcionario">
                             <span>Carlos Lima</span>
                         </div>
 
                         <div class="employee">
-                            <img src="Imagem/login-user.jpg" alt="Funcionario">
+                            <img src="Imagem/avartar_mulher.png" alt="Funcionario">
                             <span>Ana Costa</span>
                         </div>
                     </div>

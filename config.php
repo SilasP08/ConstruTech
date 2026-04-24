@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['action']) && $_POST['action'] === 'limpar_estoque') {
         $_SESSION['produtos'] = [];
-        $_SESSION['success'] = "Estoque limpo com sucesso!";
+        $_SESSION['success_estoque'] = "Estoque limpo com sucesso!";
 
         header("Location: config.php");
         exit;
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/config.css">
+    <link rel="icon" type="x-icon" href="./Imagem/icone.png"> <link rel="stylesheet" href="CSS/config.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
     <title><?php echo $nomeEmp  ?> - Configurações</title>
 </head>
@@ -189,7 +189,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="config-box">
                     <h3>Ações do Sistema</h3>
-
+                    
+                    <?php if(isset($_SESSION['success_estoque'])): ?>
+                        <div class="alert-success">
+                            <?= $_SESSION['success_estoque']; unset($_SESSION['success_estoque']); ?>
+                        </div>
+                    <?php endif; ?>
+                    
                     <div class="action-item">
                         <div class="input-container">
                             <strong>Limpar Estoque</strong>

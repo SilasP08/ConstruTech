@@ -3,10 +3,10 @@ const ctx1 = document.getElementById('vendasChart');
 new Chart(ctx1, {
     type: 'line',
     data: {
-        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
         datasets: [{
             label: 'Vendas (R$)',
-            data: [1200, 1900, 3000, 2500, 2200, 3200],
+            data: [2400, 1900, 3000, 2500, 2200, 3200, 2600, 2600, 3400, 3000, 4000, 2300, 1200],
             borderWidth: 2,
 
             borderColor: '#eeb333',

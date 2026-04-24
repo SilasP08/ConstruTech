@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/cadastro_produto.css">
+    <link rel="icon" type="x-icon" href="./Imagem/icone.png"> <link rel="stylesheet" href="./CSS/cadastro_produto.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title><?php echo $nomeEmp  ?> - Cadastro de Produtos</title>
 </head>
@@ -65,13 +65,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <nav>
                     <ul>
                         <a href="admin.php">
-                            <li class="active">
+                            <li>
                                 <i class="bi bi-bar-chart-line-fill"></i> Painel de Controle
                             </li>
                         </a>
 
                         <a href="estoque.php">
-                            <li>
+                            <li class="active">
                                 <i class="bi bi-archive-fill"></i> Estoque
                             </li>
                         </a>

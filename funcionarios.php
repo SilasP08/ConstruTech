@@ -9,7 +9,7 @@ $funcionarios = $_SESSION['funcionarios'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/funcionarios.css">
+    <link rel="icon" type="x-icon" href="./Imagem/icone.png"> <link rel="stylesheet" href="CSS/funcionarios.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
     <title><?php echo $nomeEmp  ?> - Funcionários</title>
 </head>
@@ -121,26 +121,23 @@ $funcionarios = $_SESSION['funcionarios'];
                     <div class="employee-header">
                         <h3>Lista de Funcionários</h3>
                     </div>
-
-                    <!-- CABEÇALHO -->
-                    <div class="header">
-                        <div>Nome</div>
-                        <div>Cargo</div>
-                        <div>Salário</div>
-                        <div>Vendas</div>
-                    </div>
-
-                    <!-- LISTA -->
-                     
-                    <?php foreach($funcionarios as $f): ?>
-                        <div class="linha">
-                            <div><?= $f['nome'] ?></div>
-                            <div class="cargo"><?= $f['cargo'] ?></div>
-                            <div>R$ <?= number_format($f['salario'], 2, ',', '.') ?></div>
-                            <div class="vendas"><?= $f['vendas'] ?></div>
+                    <div class="tabela-scroll">
+                       <div class="header">
+                            <div>Nome</div>
+                            <div>Cargo</div>
+                            <div>Salário</div>
+                            <div>Vendas</div>
                         </div>
-                    <?php endforeach; ?>
 
+                        <?php foreach($funcionarios as $f): ?>
+                            <div class="linha">
+                                <div><?= $f['nome'] ?></div>
+                                <div class="cargo"><?= $f['cargo'] ?></div>
+                                <div>R$ <?= number_format($f['salario'], 2, ',', '.') ?></div>
+                                <div class="vendas"><?= $f['vendas'] ?></div>
+                            </div>
+                        <?php endforeach; ?> 
+                    </div>
                 </div>
             </div>
         </div>

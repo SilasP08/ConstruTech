@@ -7,7 +7,7 @@ require_once 'init.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $nomeEmp ?> - Vendas</title>
+    <link rel="icon" type="x-icon" href="./Imagem/icone.png"> <title><?= $nomeEmp ?> - Vendas</title>
 
     <link rel="stylesheet" href="CSS/vendas.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
@@ -132,7 +132,7 @@ require_once 'init.php';
                     </div>
 
                     <div class="linha">
-                        <div>#0001</div>
+                        <div>#9237</div>
                         <div>Claudio Almeida</div>
                         <div class="status pendente">Pendente</div>
                         <div>Martelo</div>
@@ -141,9 +141,9 @@ require_once 'init.php';
                     </div>
 
                     <div class="linha">
-                        <div>#0002</div>
+                        <div>#9236</div>
                         <div>Maria Souza</div>
-                        <div class="status pendente">Pendente</div>
+                        <div class="status cancelado">Cancelado</div>
                         <div>Cimento</div>
                         <div>Carlos Lima</div>
                         <div>R$ 120,00</div>
@@ -165,56 +165,56 @@ require_once 'init.php';
                     </div>
 
                     <div class="linha">
-                        <div>#0000</div>
-                        <div>Pedro Lima</div>
+                        <div>#9235</div>
+                        <div>Alceu Domingues</div>
                         <div class="status aprovado">Aprovado</div>
-                        <div>Tinta</div>
-                        <div>Ana Costa</div>
-                        <div>R$ 80,00</div>
+                        <div>Tinta Acrílica 18L</div>
+                        <div>Giodásio Filho</div>
+                        <div>R$ 189,90</div>
                     </div>
 
                     <div class="linha">
-                        <div>#0000</div>
-                        <div>Pedro Lima</div>
+                        <div>#9234</div>
+                        <div>Pedro Moles</div>
                         <div class="status aprovado">Aprovado</div>
-                        <div>Tinta</div>
-                        <div>Ana Costa</div>
-                        <div>R$ 80,00</div>
+                        <div>Areia (m³)</div>
+                        <div>Maria das Dores</div>
+                        <div>R$ 120,00</div>
                     </div>
 
                     <div class="linha">
-                        <div>#0000</div>
-                        <div>Pedro Lima</div>
+                        <div>#9233</div>
+                        <div>Will Trindade</div>
                         <div class="status aprovado">Aprovado</div>
-                        <div>Tinta</div>
+                        <div>Furadeira Elétrica</div>
                         <div>Ana Costa</div>
-                        <div>R$ 80,00</div>
+                        <div>R$ 249,90</div>
                     </div>
 
                     <div class="linha">
-                        <div>#0000</div>
-                        <div>Pedro Lima</div>
+                        <div>#9232</div>
+                        <div>Américo Firmino</div>
                         <div class="status aprovado">Aprovado</div>
-                        <div>Tinta</div>
-                        <div>Ana Costa</div>
-                        <div>R$ 80,00</div>
+                        <div>Chave de Fenda</div>
+                        <div>Natal Silverio</div>
+                        <div>R$ 14,50</div>
                     </div>
 
                     <div class="linha">
-                        <div>#0000</div>
-                        <div>Pedro Lima</div>
+                        <div>#9231</div>
+                        <div>Luis Scott</div>
                         <div class="status aprovado">Aprovado</div>
-                        <div>Tinta</div>
-                        <div>Ana Costa</div>
-                        <div>R$ 80,00</div>
+                        <div>Cimento 50Kg</div>
+                        <div>Raissa Carvalho</div>
+                        <div>R$ 38,90</div>
                     </div>
 
                     <div class="linha">
-                        <div>#0000</div>
-                        <div>Pedro Lima</div>
+                        <div>#9230</div>
+                        <div>Alice Nave</div>
                         <div class="status aprovado">Aprovado</div>
                         <div>Tinta</div>
-                        <div>Ana Costa</div>
+                        <div>Giodásio Filho</div>
                         <div>R$ 80,00</div>
                     </div>
                 </div>

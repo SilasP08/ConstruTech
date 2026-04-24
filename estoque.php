@@ -12,7 +12,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/estoque.css">
+    <link rel="icon" type="x-icon" href="./Imagem/icone.png"> <link rel="stylesheet" href="CSS/estoque.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <title><?php echo $nomeEmp ?> - Estoque</title>
 </head>
@@ -159,19 +159,7 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
                                     </div>
                                 </div>
-                                <!-- <select onchange="filtrarCategoria(this.value)">           <-------- NÃO DESCOMENTE - QUEBRA O CODIGO
-
-                                    <option value="">Categoria<i class="bi bi-caret-down-fill"></i></option>
-
-                                    <?php
-                                    foreach ($categoria as $kat => $nome) {
-                                        $selected = ($categoria_get === $kat) ? 'selected' : '';
-                                        echo "<option value='$kat' $selected>$nome</option>";
-                                    }
-                                    ?>
-
-                                </select> -->
-
+                             
                             </form>
 
                             <div>Quantidade</div>
@@ -182,8 +170,14 @@ $categoria_get = isset($_GET['categoria']) ? trim($_GET['categoria']) : '';
 
                             <?php
                                 foreach ($_SESSION['produtos'] as $produto) {
-
+                                    
                                     // $cor = '';
+                                    if ($produto['limite_baixo'] < 0 ) {
+                                        $produto['limite_baixo'] = $produto['limite_baixo'] * -1;
+                                    }
+                                    if ($produto['limite_alto'] < 0)  {
+                                        $produto['limite_alto'] = $produto['limite_alto'] * -1;
+                                    } 
                                     if($produto['qtd'] >= $produto['limite_alto']){
                                         $simbol = '<i style="color: green; margin-right: 10px;" class="bi bi-check-circle-fill"></i>';
                                     } elseif ($produto['qtd'] <= $produto['limite_baixo'] ) {

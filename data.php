@@ -46,7 +46,7 @@ $produtos_gerais = [
         'nome' => 'Furadeira Elétrica',
         'preco' => 249.90,
         'cat' => 'Ferramentas',
-        'qtd' => 30,
+        'qtd' => 4,
         'limite_alto' => 25,
         'limite_baixo' => 5,
         'imagem' => './Imagem/furadeira.jpeg',
@@ -101,6 +101,24 @@ $funcionarios = [
         'cargo' => 'Gerente',
         'salario' => 4000,
         'vendas' => 18
+    ], 
+    [
+        'nome' => 'Giodásio Filho',
+        'cargo' => 'Gerente de Vendas',
+        'salario' => 3800,
+        'vendas' => 29
+    ],
+    [
+        'nome' => 'Raissa Carvalho',
+        'cargo' => 'Vendedor',
+        'salario' => 2300,
+        'vendas' => 15
+    ],
+    [
+        'nome' => 'Ana Costa',
+        'cargo' => 'Vendedor',
+        'salario' => 2300,
+        'vendas' => 28
     ],
     [
         'nome' => 'Carlos Lima',
@@ -109,9 +127,39 @@ $funcionarios = [
         'vendas' => 25
     ],
     [
-        'nome' => 'Ana Costa',
+        'nome' => 'Natal Silverio',
+        'cargo' => 'Vendedor-Sênior',
+        'salario' => 2950,
+        'vendas' => 13
+    ],
+    [
+        'nome' => 'Catarina Zimmer',
         'cargo' => 'Vendedor',
         'salario' => 2300,
-        'vendas' => 28
+        'vendas' => 14
+    ],
+    [
+        'nome' => 'Maria das Dores',
+        'cargo' => 'Vendedor-Sênior',
+        'salario' => 2950,
+        'vendas' => 19
+    ],
+    [
+        'nome' => 'Givanildo Almeida',
+        'cargo' => 'Vendedor-Junior',
+        'salario' => 1621,
+        'vendas' => 16
+    ],
+    [
+        'nome' => 'Rodrigo Stanieck',
+        'cargo' => 'Vendedor',
+        'salario' => 2300,
+        'vendas' => 20
+    ],
+    [
+        'nome' => 'Carol Azevedo',
+        'cargo' => 'Vendedor-Junior',
+        'salario' => 1621,
+        'vendas' => 22
     ]
 ];
