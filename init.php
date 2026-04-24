@@ -10,18 +10,18 @@ if (!isset($_SESSION['produtos'])) {
 
 if (!isset($_SESSION['funcionarios'])) {
     $_SESSION['funcionarios'] = $funcionarios;
-}
+};
 
 if (!isset($_SESSION['config'])) {
     $_SESSION['config'] = [
         'empresa' => 'ConstruTech',
         'gerente' => 'Admin',
-        'contato' => '93056-9806'
+        'contato' => '(11) 93056-9806'
     ];
-}
+};
 
-$contato = $_SESSION['config']['contato'];
 $nomeEmp = $_SESSION['config']['empresa'];
 $nome_admin = $_SESSION['config']['gerente'];
+$contato = $_SESSION['config']['contato'];
 
 // session_destroy();

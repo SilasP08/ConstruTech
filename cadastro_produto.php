@@ -27,14 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/cadastro_produto.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <title>Document</title>
+    <title><?php echo $nomeEmp  ?> - Cadastro de Produtos</title>
 </head>
 
 <body>
@@ -163,21 +163,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="titulo-qtd">
-                                <label>Quantidade em Estoque</label>
+                        <div class="form-group">
+                            <label>Quantidade em Estoque:</label>
+
+                            <div class="qtd-grid">
+                                <div>
+                                    <span>Estoque Alto</span>
+                                    <input type="number" name="limite_alto" placeholder="0">
+                                </div>
+
+                                <div>
+                                    <span>Estoque Baixo</span>
+                                    <input type="number" name="limite_baixo" placeholder="0">
+                                </div>
+
+                                <div>
+                                    <span>Estoque Atual</span>
+                                    <input type="number" name="qtd" placeholder="0">
+                                </div>
                             </div>
-
-                            <div class="form-qtd">
-
-                                <label class="qtd">Estoque Alto</label>
-                                <label class="qtd">Estoque Baixo</label>
-                                <label class="qtd">Estoque Atual</label>
-                                <input type="number" placeholder="0" name="limite_alto" required>
-                                <input type="number" placeholder="0" name="limite_baixo">
-                                <input type="number" placeholder="0" name="qtd">
-                            </div>
-
                         </div>
 
                         <div class="form-group">
@@ -195,8 +199,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
                     </form>
-                    <a href="estoque.php" class="btn-voltar">Voltar</a>
+                    
                 </div>
+                <a href="estoque.php" class="btn-voltar">Voltar</a>
 
             </div>
         </div>
@@ -204,8 +209,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <?php
     require_once './partials/footer.php'
-        ?>
-
+    ?>
+ 
+    <script src="./JS/logoutModal.js"></script>
 </body>
-
 </html>

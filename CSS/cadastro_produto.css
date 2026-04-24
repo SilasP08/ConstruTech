@@ -103,7 +103,7 @@ main {
 
 .menu-vertical-container {
     background: #111111;
-    height: 90vh;
+    height: 91vh;
     width: 15%;
     color: #f8f8f8;
     display: flex;
@@ -347,28 +347,29 @@ main {
     margin-top: 60px;
     width: 100%;
     display: flex;
-    justify-content: center;
-    padding: 10px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .form-card {
-    background-color: var(--card);
+    background: linear-gradient(145deg, #1f1f23, #18181a);
     width: 100%;
-    max-width: 650px;
-    height: auto;
-    max-height: 640px;
-    padding: 30px;
-    border-radius: 15px;
+    max-width: 600px;
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid #2a2a2a;
     border: 1px solid var(--borderCard);
 }
 
 .form-card h2 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: var(--primary);
+    font-size: 20px;
 }
 
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -391,30 +392,52 @@ main {
 }
 
 label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #dfaa38;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #eeb333;
 }
 
 input, select, textarea {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #2f2f37;
+    background: #1a1a1d;
+    color: #fff;
     font-size: 14px;
-    transition: 0.2s;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #777;
 }
 
 input:focus, 
 select:focus, 
 textarea:focus {
-    outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 5px var(--primary);
+    box-shadow: 0 0 8px #eeb3334f;
 }
 
 textarea {
     resize: none;
     height: 100px;
+}
+
+select {
+    background: #1a1a1d;
+    color: #fff;
+
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #2f2f37;
+
+    appearance: none;
+
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23eeb333' height='20' viewBox='0 0 20 20' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
 }
 
 .row {
@@ -424,6 +447,28 @@ textarea {
 
 .row .form-group {
     flex: 1;
+}
+
+.qtd-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.qtd-grid div {
+    display: flex;
+    flex-direction: column;
+}
+
+.qtd-grid span {
+    font-size: 12px;
+    color: #eeb333;
+    /* font-weight: 600; */
+    margin-bottom: 5px;
+}
+
+.qtd-grid input {
+    width: 100%;
 }
 
 .btn {
@@ -446,10 +491,8 @@ textarea {
 
 .btn-voltar {
     display: flex;
-    border:  4px solid red;
     width: 20%;
     padding: 12px;
-    border: none;
     border-radius: 10px;
     background-color: var(--primary);
     color: white;
@@ -457,15 +500,14 @@ textarea {
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
-    margin-top: 70px;
     justify-content: center;
-    margin-left: -20px;
 }
 
 .btn-voltar:hover {
     transition: 0.2s ease-in;
     transform: scale(1.05);
     filter: brightness(110%);
+    background-color: #e74c3c;
 }
 
 footer {
